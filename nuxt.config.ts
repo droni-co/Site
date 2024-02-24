@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
   ],
   i18n: {
     locales: ['en', 'es'], // used in URL path prefix
@@ -13,4 +14,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     
   },
+  colorMode: {
+    classSuffix: ''
+  }
 })
