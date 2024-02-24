@@ -1,35 +1,59 @@
 <template>
-  <header class="bg-zinc-100 dark:bg-zinc-800 p-3">
+  <header class="bg-zinc-100
+      p-2
+      shadow-lg
+    dark:bg-zinc-800">
     <div class="container mx-auto">
       <div class="flex justify-between items-center">
         <div class="px-2">
           <nuxt-link :to="localePath('/')">
-            <img src="~/assets/img/logo.svg" alt="Logo" class="w-12 dark:hidden" />
-            <img src="~/assets/img/logo-w.svg" alt="Logo" class="w-12 hidden dark:block" />
+            <img src="~/assets/img/logo.svg" :alt="$t('header.title')" class="w-8 dark:hidden" />
+            <img src="~/assets/img/logo-w.svg" :alt="$t('header.title')" class="w-8 hidden dark:block" />
           </nuxt-link>
         </div>
         <div class="grow">
           <nuxt-link
-            :to="localePath('/')"
-            class="px-5
-              py-3
+            :to="localePath('/blog')"
+            class="p-3
               transition
               hover:text-gray-600
               dark:text-gray-50
-              dark:hover:text-gray-200">
-            {{ $t('header.menu.home') }}
+              dark:hover:text-gray-400">
+            {{ $t('header.menu.blog') }}
+          </nuxt-link>
+          <nuxt-link
+            :to="localePath('/about')"
+            class="p-3
+              transition
+              hover:text-gray-600
+              dark:text-gray-50
+              dark:hover:text-gray-400">
+            {{ $t('header.menu.about') }}
           </nuxt-link>
           <nuxt-link
             :to="localePath('/services')"
-            class="px-5
-              py-3
+            class="p-3
               transition
               hover:text-gray-600
               dark:text-gray-50
-              dark:hover:text-gray-200">
+              dark:hover:text-gray-400">
             {{ $t('header.menu.services') }}
           </nuxt-link>
+          <nuxt-link
+            :to="localePath('/projects')"
+            class="p-3
+              transition
+              hover:text-gray-600
+              dark:text-gray-50
+              dark:hover:text-gray-400">
+            {{ $t('header.menu.projects') }}
+          </nuxt-link>
         </div>
+        <input
+          type="search"
+          class="px-4 p-2 rounded-full dark:bg-zinc-700 dark:text-gray-50"
+          :placeholder="$t('header.search')"
+        />
         <button @click="changeLocale" class="dark:text-gray-50 p-3">
           <i class="i-mdi-translate"></i>
         </button>
