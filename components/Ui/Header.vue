@@ -1,55 +1,64 @@
 <template>
-  <header class="bg-zinc-800 dark:bg-slate-300">
-    <h1>{{ $t('header.title') }}</h1>
-    <ul>
-      <li>
-        <nuxt-link :to="localePath('/')" class="text-kalvin-500">
-          {{ $t('header.menu.home') }}
-          <span class="i-mdi-home text-primary"></span>
-          dddd
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link :to="localePath('/services')" class="text-purple-700">
-          {{ $t('header.menu.services') }}
-        </nuxt-link>
-      </li>
-    </ul>
-    <div class="dark-mode nuevo">
-
-    
-      <h1>Color mode: {{ $colorMode.value }}</h1>
-      <select v-model="$colorMode.preference">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-      </select>
+  <header class="bg-zinc-100 dark:bg-zinc-800 p-3">
+    <div class="container mx-auto">
+      <div class="flex justify-between items-center">
+        <div class="px-2">
+          <nuxt-link :to="localePath('/')">
+            <img src="~/assets/img/logo.svg" alt="Logo" class="w-12 dark:hidden" />
+            <img src="~/assets/img/logo-w.svg" alt="Logo" class="w-12 hidden dark:block" />
+          </nuxt-link>
+        </div>
+        <div class="grow">
+          <nuxt-link
+            :to="localePath('/')"
+            class="px-5
+              py-3
+              transition
+              hover:text-gray-600
+              dark:text-gray-50
+              dark:hover:text-gray-200">
+            {{ $t('header.menu.home') }}
+          </nuxt-link>
+          <nuxt-link
+            :to="localePath('/services')"
+            class="px-5
+              py-3
+              transition
+              hover:text-gray-600
+              dark:text-gray-50
+              dark:hover:text-gray-200">
+            {{ $t('header.menu.services') }}
+          </nuxt-link>
+        </div>
+        <button @click="changeLocale" class="dark:text-gray-50 p-3">
+          <i class="i-mdi-translate"></i>
+        </button>
+        <button @click="changeColorMode" class="dark:text-gray-50 p-3">
+          <i class="i-mdi-theme-light-dark"></i>
+        </button>
+      </div>
     </div>
-    <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
-    <NuxtLink :to="switchLocalePath('es')">Español</NuxtLink>
   </header>
 </template>
 <script setup lang="ts">
 const colorMode = useColorMode()
 console.log(colorMode.preference)
-const { locale, locales } = useI18n()
+const { locale } = useI18n()
 const localePath = useLocalePath()
-const switchLocalePath = useSwitchLocalePath()
-
-console.log( locales.value)
+/* change color mode */
+const changeColorMode = () => {
+  if (colorMode.preference === 'light') {
+    colorMode.preference = 'dark'
+  } else if (colorMode.preference === 'dark') {
+    colorMode.preference = 'sepia'
+  } else if (colorMode.preference === 'sepia') {
+    colorMode.preference = 'light'
+  } else {
+    colorMode.preference = 'dark'
+  }
+}
+/* change local */
+const changeLocale = () => {
+  locale.value = locale.value === 'en' ? 'es' : 'en'
+}
 </script>
-<style>
-.nuevo {
-  background-color: #fff;
-  color: rgba(0,0,0,0.8);
-}
-.dark-mode .nuevo {
-  background-color: #091a28;
-  color: #ebf4f1;
-}
-.sepia-mode .nuevo {
-  background-color: #f1e7d0;
-  color: #433422;
-}
-</style>
