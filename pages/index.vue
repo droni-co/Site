@@ -47,7 +47,7 @@
           {{ t('blog.lastPosts') }}
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <BlogCard v-for="post in lastPosts" :key="post.id" :post="post" />
+          <BlogCard v-for="lastPost in lastPosts" :key="lastPost.id" :blogPost="lastPost" />
         </div>
       </div>
     </section>
@@ -56,5 +56,5 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 const { t } = useI18n()
-const { data:lastPosts } = await useAsyncData('home', () => queryContent('/blog').sort({ created_at: -1 }).limit(4).find())
+const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent('/blog').sort({ created_at: -1 }).limit(4).find())
 </script>

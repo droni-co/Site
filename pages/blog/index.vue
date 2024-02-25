@@ -10,7 +10,7 @@
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto py-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <BlogCard v-for="post in lastPosts" :key="post._id" :post="post" />
+        <BlogCard v-for="lastPost in lastPosts" :key="lastPost._id" :blogPost="lastPost" />
       </div>
     </div>
   </div>
