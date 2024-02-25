@@ -7,6 +7,7 @@ module.exports = {
     iconsPlugin({
       collections: getIconCollections(["mdi"]),
     }),
+    require('@tailwindcss/typography'),
   ],
   theme: {
     theme: {

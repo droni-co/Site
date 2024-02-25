@@ -22,7 +22,9 @@
       </div>
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto py-4">
-      <ContentDoc class="mdFormat" />
+      <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8">
+        <ContentDoc />
+      </article>
     </div>
   </div>
 </template>
@@ -30,10 +32,3 @@
 const route = useRoute()
 const { data:post } = await useAsyncData(route.path, () => queryContent(route.fullPath).findOne())
 </script>
-<style>
-.mdFormat {
-  h1 {
-    font-size: 10em;
-  }
-}
-</style>
