@@ -3,18 +3,18 @@
     <UiHero>
       <div class="text-center md:text-start py-6">
         <h1 class="text-balance lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
-          {{ t('about.title') }}
+          {{ doc?.title }}
         </h1>
-        <h4>{{ t('about.subtitle') }}</h4>
+        <h4>{{ doc?.subtitle }}</h4>
       </div>
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="md:col-span-1">
-          
+          <ContentDoc />
         </div>
         <div class="md:col-span-1">
-          <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
+          <!-- <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
             {{ t('about.who') }}
           </h2>
           <p class="text-xl my-5">
@@ -25,13 +25,14 @@
             :title="t('about.action')">
             <i class="i-mdi-email-outline me-3"></i> 
             {{ t('about.action') }}
-          </UiAction>
+          </UiAction> -->
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const { t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
+const { data:doc } = await useAsyncData('page-data', () => queryContent(route.fullPath).findOne())
 </script>

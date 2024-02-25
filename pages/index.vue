@@ -47,10 +47,7 @@
           {{ t('blog.lastPosts') }}
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
+          <BlogCard v-for="post in lastPosts" :key="post.id" :post="post" />
         </div>
       </div>
     </section>
@@ -59,9 +56,5 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 const { t } = useI18n()
-useSeoMeta({
-  title: `${t('header.title')} | ${t('header.subtitle')}`,
-  description: t('header.description'),
-  ogImage: '/assets/img/home/heroKosante.webp'
-})
+const { data:lastPosts } = await useAsyncData('home', () => queryContent('/blog').sort({ created_at: -1 }).limit(4).find())
 </script>

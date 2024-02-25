@@ -3,19 +3,19 @@
     <UiHero>
       <div class="text-center md:text-start py-6">
         <h1 class="text-balance lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
-          {{ t('blog.title') }}
+          {{ post?.title }}
         </h1>
-        <h4>{{ t('blog.subtitle') }}</h4>
+        <h4>{{ post?.description }}</h4>
       </div>
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto py-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <BlogCard v-for="post in lastPosts" :key="post._id" :post="post" />
+        <ContentDoc />
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const { t } = useI18n()
-const { data:lastPosts } = await useAsyncData('home', () => queryContent('/blog/2024').sort({ created_at: -1 }).limit(12).find())
+const route = useRoute()
+const { data:post } = await useAsyncData('home', () => queryContent(route.fullPath).findOne())
 </script>
