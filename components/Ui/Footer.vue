@@ -3,11 +3,13 @@
     text-gray-700
     dark:bg-gray-900
     ">
-    <div class="container mx-auto py-6">
+    <div class="container mx-auto py-6 px-3 text-center">
       <p class="text-sm">&copy; 2024 {{ $t('footer.copy') }}</p>
       <a
         href="https://twitter.com/droni_co"
-        class="transition 
+        class="transition
+          inline-block
+          p-3
           text-blue-400 
           hover:text-blue-300
           text-2xl">
@@ -16,6 +18,8 @@
       <a
         href="https://www.facebook.com/fan.droni.co/"
         class="transition
+          inline-block
+          p-3
           text-blue-400 
           hover:text-blue-300
           text-2xl">
@@ -23,6 +27,8 @@
       </a>
       <a href="https://co.linkedin.com/company/droni-co"
         class="transition
+          inline-block
+          p-3
           text-blue-400 
           hover:text-blue-300
           text-2xl">
