@@ -6,7 +6,7 @@
           <h2 class="text-gray-400
             text-2xl
             md:text-4xl">
-            {{ $t('header.title') }}
+            {{ t('header.title') }}
           </h2>
           <h1 class="text-balance
             font-extrabold 
@@ -15,18 +15,53 @@
             dark:text-gray-50
             text-3xl
             md:text-6xl">
-            {{ $t('header.subtitle') }}
+            {{ t('header.subtitle') }}
           </h1>
-          <p class="text-xl mt-3">
-            {{ $t('header.description') }} 
+          <p class="text-xl my-5">
+            {{ t('header.description') }} 
           </p>
+          <UiAction 
+            :to="localePath('/about')"
+            :title="t('header.action')">
+            <i class="i-mdi-rocket-launch-outline me-3"></i> 
+            {{ t('header.action') }}
+          </UiAction>
         </div>
         <div class="lg:w-1/2 order-first md:order-1 pt-10 md:pt-0">
           <img src="~/assets/img/home/heroKosante.webp" class="aspect-[4/3]" alt="Kosante | Last project" />
         </div>
       </div>
     </UiHero>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quod expedita dolores autem ducimus recusandae modi laborum molestias accusamus fugiat dolorem assumenda doloribus adipisci iste, reiciendis consectetur nisi omnis natus.</p>
-    <h1>Home</h1>
+    <!-- Blog List -->
+    <section class="py-8">
+      <div class="container mx-auto px-2 md:px-auto">
+        <h3 class="
+          text-center
+          text-4xl
+          font-extrabold
+          mb-3
+          md:mb-6
+          text-gray-800
+          dark:text-gray-100
+          drop-shadow-lg">
+          {{ t('blog.lastPosts') }}
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
+<script setup lang="ts">
+const localePath = useLocalePath()
+const { t } = useI18n()
+useSeoMeta({
+  title: `${t('header.title')} | ${t('header.subtitle')}`,
+  description: t('header.description'),
+  ogImage: '/assets/img/home/heroKosante.webp'
+})
+</script>

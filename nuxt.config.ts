@@ -6,8 +6,18 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode'
   ],
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    }
+  },
   i18n: {
-    locales: ['en', 'es'], // used in URL path prefix
+    baseUrl: 'https://droni.co',
+    locales: [
+      { code: 'en', iso: 'en-US' },
+      { code: 'es', iso: 'es-ES' }
+    ], // used in URL path prefix
     defaultLocale: 'en',
     vueI18n: './i18n.config.ts' // if you are using custom path, default
   },
