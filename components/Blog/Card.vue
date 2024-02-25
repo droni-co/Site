@@ -3,7 +3,7 @@
     hover:scale-105 transition-transform">
     <a href="#">
       <img
-        class="rounded-t"
+        class="rounded-t aspect-video object-cover"
         src="https://flowbite.com/docs/images/blog/image-1.jpg"
         alt="" />
     </a>

@@ -25,6 +25,12 @@ export default defineI18nConfig(() => ({
         action: 'Read more',
         lastPosts: 'Last posts in blog'
       },
+      about: {
+        title: 'About us',
+        subtitle: 'We are a team of professionals passionate about technology and innovation.',
+        description: 'We are a team of professionals passionate about technology and innovation. We transform ideas into innovative digital solutions.',
+        action: 'Get in touch'
+      },
       footer: {
         copy: 'Built with hard work and many cofee by Droni.co team'
       }
