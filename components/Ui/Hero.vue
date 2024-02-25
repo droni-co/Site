@@ -2,7 +2,7 @@
   <div class="animatedBg bg-gradient-to-br
     from-slate-100 via-cyan-100 to-purple-100
      dark:from-slate-900 dark:via-cyan-800 dark:to-purple-900">
-    <div class="container mx-auto">
+    <div class="container px-2 md:px-auto mx-auto">
       <slot /> 
     </div>
   </div>

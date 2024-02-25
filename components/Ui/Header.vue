@@ -6,7 +6,9 @@
       shadow-lg
     dark:bg-zinc-800
       md:p-2
-      md:pb-1">
+      md:pb-1
+      relative
+      z-1">
     <div class="container mx-auto">
       <div class="md:flex justify-between items-center">
         <div class="flex p-2 pb-0 md:pb-2">
