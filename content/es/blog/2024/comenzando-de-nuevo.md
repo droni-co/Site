@@ -1,0 +1,14 @@
+---
+title: 'Comenzando de nuevo'
+description: 'Ya esta es la cuarta o quinta vez que cambio mi sitio web personal, pero ahora que estoy trabajando wordpress confío en que sera la última vez que empiece desde cero, espero ahora dedicarme a actualizar y pulir mi sitio poco a poco aprovechando la estructura y escalabilidad que este framework CMS ofrece.'
+tags: ['Blog', 'Personal']
+created_at: '2024-02-25'
+image: '/attachments/comenzando-de-nuevo.png'
+author: 'Gustavo Barragán'
+author_link: 'https://twitter.com/kalvinmanson'
+---
+Ya esta es la cuarta o quinta vez que cambio mi sitio web personal, pero ahora que estoy trabajando ~~Laravel~~ ~~wordpress~~ Nuxt confío en que sera la ultima vez que empiece desde cero, espero ahora dedicarme a actualizar y pulir mi sitio poco a poco aprovechando la estructura y escalabilidad que este ~~framework~~ ~~CMS~~ Framework de nuevo ofrece.
+
+Debo advertir a todos que este no será un blog exclusivamente tecnológico. aunque es cierto que los temas que más me apasionan son el desarrollo y el diseño web, quiero dedicar este espacio a publicar todo lo que se me pasa por la cabeza, incluyendo cosas como reseñas de peliculas, opiniones políticas o referentes a alguna noticia, o en general cualquier contenido del que me guste escribir algo o compartir con los demás.
+
+Creo que por ahora no es más y espero que se diviertan un poco con lo que por aquí encuentran.
