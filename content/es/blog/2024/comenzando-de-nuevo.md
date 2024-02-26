@@ -17,4 +17,10 @@ Solo por tener un recuerdo de como lucia el sitio antes de este cambio, aquí de
 
 Debo advertir a todos que este no será un blog exclusivamente tecnológico. aunque es cierto que los temas que más me apasionan son el desarrollo y el diseño web, quiero dedicar este espacio a publicar todo lo que se me pasa por la cabeza, incluyendo cosas como reseñas de peliculas, opiniones políticas o referentes a alguna noticia, o en general cualquier contenido del que me guste escribir algo o compartir con los demás.
 
+### La nueva web
+
+Aqui les djeo una vista de la web que me imagino estan viendo en este momento creada usando enteramente Nuxt en su versión 3
+
+![Nueva Web de Dronico](/attachments/dronico-card.png){.mx-auto}
+
 Creo que por ahora no es más y espero que se diviertan un poco con lo que por aquí encuentran.

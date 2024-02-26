@@ -1,5 +1,5 @@
 ---
-title: 'Droni.co | Desarrollo inteligente'
-description: 'Transformamos ideas en soluciones digitales innovadoras. Somos el Wozniak de tu Jobs, somos la malta de tu pastelito, somos el Spock de tu Kirk, somos el Doc Brown de tu Mcfly -creo que ya lo entendiste.'
+title: 'Droni.co | Smart development'
+description: 'We transform ideas into innovative digital solutions. We are the Wozniak to your Jobs, we are the malt to your cupcake, we are the Spock to your Kirk, we are the Doc Brown to your Mcfly -I think you got it.'
 image: 'https://droni.co/attachments/dronico-card.png'
 ---
