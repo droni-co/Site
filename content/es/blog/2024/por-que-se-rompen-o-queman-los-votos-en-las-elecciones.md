@@ -3,7 +3,7 @@ title: '¿Por qué se rompen o queman los votos en las elecciones?'
 description: 'Al igual que pasadas elecciones las alertas de fraude se disparan horas después de la finalización de la jornada electoral. Este año lo mas sonado son el rompimiento o quema de votos de la consulta partidista.'
 tags: ['Noticias', 'Política', 'Elecciones', 'Colombia']
 created_at: '2022-04-18'
-image: '/attachments/por-que-se-rompen-o-queman-los-votos-en-las-elecciones.png'
+image: 'https://droni.co/attachments/por-que-se-rompen-o-queman-los-votos-en-las-elecciones.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 video: 'https://www.youtube.com/watch?v=WER_UIWyB54'

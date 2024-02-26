@@ -3,7 +3,7 @@ title: 'Comenzando de nuevo'
 description: 'Ya esta es la cuarta o quinta vez que cambio mi sitio web personal, pero ahora que estoy trabajando wordpress confío en que sera la última vez que empiece desde cero, espero ahora dedicarme a actualizar y pulir mi sitio poco a poco aprovechando la estructura y escalabilidad que este framework CMS ofrece.'
 tags: ['Blog', 'Personal']
 created_at: '2024-02-25'
-image: '/attachments/comenzando-de-nuevo.png'
+image: 'https://droni.co/attachments/comenzando-de-nuevo.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

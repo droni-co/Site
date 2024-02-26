@@ -3,7 +3,7 @@ title: 'Un genio, quizá el último.'
 description: 'Nos ha dejado Stephen Hawking, y con él se ha ido el padre de la física actual, capaz de poner en armonía los elementos del universo, aquellos que son un secreto para el lector común, pero que se leen en letras doradas para mentes avanzadas en el tiempo.'
 tags: ['Noticias', 'Ciencia', 'Stephen Hawking', 'Física']
 created_at: '2022-04-18'
-image: '/attachments/un-genio-quiza-el-ultimo.png'
+image: 'https://droni.co/attachments/un-genio-quiza-el-ultimo.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

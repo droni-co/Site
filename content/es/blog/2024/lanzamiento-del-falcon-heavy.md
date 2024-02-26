@@ -3,7 +3,7 @@ title: 'Lanzamiento del Falcon Heavy'
 description: 'Una de las principales características que distinguen a este cohete y en general a la familia Falcon desarrollada por space X es la capacidad de aterrizar de manera vertical y controlada en tierra, una hazaña que durante muchos años se consideraba imposible y que le costó varios millones y años de esfuerzo a los ingenieros de Space X desarrollar.'
 tags: ['Noticias', 'Tecnología', 'Space X', 'Falcon Heavy']
 created_at: '2022-04-15'
-image: '/attachments/lanzamiento-del-falcon-heavy.png'
+image: 'https://droni.co/attachments/lanzamiento-del-falcon-heavy.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

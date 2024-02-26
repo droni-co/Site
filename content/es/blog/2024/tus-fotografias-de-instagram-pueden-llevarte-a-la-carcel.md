@@ -3,7 +3,7 @@ title: 'Tus fotografías de Instagram pueden llevarte a la cárcel'
 description: 'En Colombia Nicolás Castro creó en al año 2009 una cuenta en Facebook con el nombre “Me comprometo a matar a Jerónimo Uribe, hijo de Álvaro Uribe”. Gracias a este grupo Nicolás fue arrestado y procesado por varios años para ser finalmente declarado inocente. Aún así, el coste económico y el tiempo invertido en defenderse son irreparables.'
 tags: ['Noticias', 'Redes Sociales']
 created_at: '2022-04-16'
-image: '/attachments/tus-fotografias-de-instagram-pueden-llevarte-a-la-carcel.png'
+image: 'https://droni.co/attachments/tus-fotografias-de-instagram-pueden-llevarte-a-la-carcel.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 video: 'https://www.youtube.com/watch?v=DXb3V9LDPKk'

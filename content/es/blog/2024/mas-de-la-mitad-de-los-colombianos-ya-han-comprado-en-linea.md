@@ -3,7 +3,7 @@ title: 'Más de la mitad de los Colombianos ya han comprado en línea'
 description: 'Esta creciente desmedida del mercado online ha hecho que este represente ya el 2.6% del Producto Interno Bruto (PIB) del país, y es que a diferencia de otras tendencias que pueden llegar a convertirse en una burbuja que decaiga con el tiempo, el mercado digital es estable y creciente conectando cada vez de maneras más eficientes a compradores y comercio mediante internet.'
 tags: ['Noticias', 'Ecnonomía', 'Comercio', 'Colombia']
 created_at: '2022-04-15'
-image: '/attachments/mas-de-la-mitad-de-los-colombianos-ya-han-comprado-en-linea.png'
+image: 'https://droni.co/attachments/mas-de-la-mitad-de-los-colombianos-ya-han-comprado-en-linea.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

@@ -3,7 +3,7 @@ title: 'Cómo Implementar CKEditor4 en laravel con administrador de archivos per
 description: 'Hace mucho tiempo realice la itegraicon de kcFinder en lugar de CKfinder para laravel con CKeditor y tuve un buen resultado, aunque actualmente utilizo otor metodo e incluso otro editor Wysiwyg aqui les dejo el tutorial.'
 tags: ['Tutorial', 'Laravel', 'Ckeditor', 'vuejs']
 created_at: '2023-02-25'
-image: '/attachments/como-implementar-ckeditor4-en-laravel-5-6-con-administrador-de-archivos-personalizado.png'
+image: 'https://droni.co/attachments/como-implementar-ckeditor4-en-laravel-5-6-con-administrador-de-archivos-personalizado.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

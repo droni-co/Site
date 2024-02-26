@@ -3,7 +3,7 @@ title: 'Cómo agregar dominios de primer nivel en un multisitio de WordPress'
 description: 'Desde hace muy poco tiempo estoy experimentando con el sistema de multisitios de wordpress, de hecho este blog está montado dentro de un sistema de estos, sin embargo se me presento una duda: Al instalar el sistema de multisitio de wordpress nos permite seleccionar entre poner nuestros nuevos sitios en paths (carpetas) o en subdominios'
 tags: ['Tutorial', 'WordPress', 'Multisitio', 'Subdominios', 'Dominios']
 created_at: '2023-02-24'
-image: '/attachments/como-agregar-dominios-de-primer-nivel-en-un-multisitio-de-wordpress.png'
+image: 'https://droni.co/attachments/como-agregar-dominios-de-primer-nivel-en-un-multisitio-de-wordpress.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

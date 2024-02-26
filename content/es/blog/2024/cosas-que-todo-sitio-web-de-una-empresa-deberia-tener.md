@@ -3,7 +3,7 @@ title: 'Cosas que todo sitio web de una empresa debería tener'
 description: 'Hoy en día es casi obligatorio para toda empresa contar con un sitio web para tener visibilidad en el mercado y aunque muchas empresas aún no dan el siguiente paso necesario (Integrar software en su núcleo de negocio) vemos como cada día hay mas y mas sitios web para diferentes empresas.'
 tags: ['Tutoriales', 'Empresas', 'Desarrollo Web']
 created_at: '2022-04-20'
-image: '/attachments/cosas-que-todo-sitio-web-de-una-empresa-deberia-tener.png'
+image: 'https://droni.co/attachments/cosas-que-todo-sitio-web-de-una-empresa-deberia-tener.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---

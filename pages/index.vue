@@ -58,4 +58,15 @@ const localePath = useLocalePath()
 const { locale } = useI18n()
 const { t } = useI18n()
 const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent(locale.value === 'es' ? '/es/blog' : '/blog').sort({ created_at: -1 }).limit(4).find())
+
+const route = useRoute()
+const { data:doc } = await useAsyncData(route.path, () => queryContent(route.fullPath).findOne())
+useSeoMeta({
+  title: doc.value?.title,
+  ogTitle: doc.value?.title,
+  description: doc.value?.description,
+  ogDescription:  doc.value?.description,
+  ogImage: doc.value?.image,
+  twitterCard: 'summary_large_image',
+})
 </script>

@@ -3,7 +3,7 @@ title: 'Como instalar y configurar OCI8 en PHP de Windows'
 description: 'Desde hace poco empecé a trabajar un proyecto en particular que requiere conectarse a bases de datos Oracle pero debido a ciertos requerimientos específicos debo trabajarla desde Windows en lugar de Linux, y debo decir que la configuración de esta extensión en Windows me resultó un dolor de cabeza, aunque luego de hacerlo resultó ser algo muy sencillo. Es por eso que aquí quiero compartirles cómo conectarse con bases de datos Oracle desde PHP usando OCI8.'
 tags: ['Tutorial', 'PHP', 'Windows', 'Oracle', 'OCI8']
 created_at: '2023-03-01'
-image: '/attachments/como-instalar-y-configurar-oci8-en-php-de-windows.png'
+image: 'https://droni.co/attachments/como-instalar-y-configurar-oci8-en-php-de-windows.png'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
 ---
