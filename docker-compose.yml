@@ -11,3 +11,4 @@ services:
       - VIRTUAL_HOST=droni.co,www.droni.co
       - LETSENCRYPT_HOST=droni.co,www.droni.co
       - LETSENCRYPT_EMAIL=dev@droni.co
+      - VIRTUAL_PORT=3000
