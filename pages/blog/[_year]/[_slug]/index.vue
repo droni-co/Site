@@ -8,6 +8,12 @@
           </h1>
           <h4 class="py-2 text-balance">{{ doc.description }}</h4>
           <div class="py-2">
+            <NuxtLink :to="doc.translated" class="text-balance" v-if="doc.translated">
+              <UiPill>
+                <i class="i-mdi-translate"></i>
+                {{ locale === 'en' ? 'Versión en Español' : 'English Version' }}
+              </UiPill>
+            </NuxtLink>
             <UiPill :to="doc.author_link">
               <i class="i-mdi-account"></i>
               {{ doc?.author }}
@@ -44,6 +50,7 @@
 </template>
 <script setup lang="ts">
 const route = useRoute()
+const { locale } = useI18n()
 const { data:doc } = await useAsyncData(route.path, () => queryContent(route.fullPath).findOne())
 useSeoMeta({
   title: doc.value?.title,

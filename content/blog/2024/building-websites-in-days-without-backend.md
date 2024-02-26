@@ -1,0 +1,41 @@
+---
+title: 'Building websites in days without backend'
+description: 'This is a narrative of my experience making the leap from creating complete websites with a backend to making only sites with a front end and third-party tools, for me, a brutal gain in time.'
+tags: ['Blog', 'Personal', 'Nuxt', 'Vue', 'Frontend', 'Backend']
+created_at: '2024-02-26'
+image: 'https://droni.co/attachments/frontend-vs-backend.webp'
+author: 'Gustavo Barragán'
+author_link: 'https://twitter.com/kalvinmanson'
+translated: '/es/blog/2024/construyendo-webs-en-dias-sin-backend'
+---
+
+First I will give a little context, I have been a developer for several years now and I must say that I always like the backend more than the frontend, which I take with me tools like Ruby On Rails, Laravel, Net Core, Adonis, etc., and whenever I proposed a new project that followed a path almost without modifications in which I first thought of the database model, and then created migrations, then models and their relationships, then the controllers to generate an API, then an administrator to be able to manage that data. and finally the website in question. This is normally a process that between planning and execution could take me several months, however I still saw it as the optimal route and applied it to all my projects.
+
+## But how do they do it?
+One of the reasons that led me to investigate a new way of approaching these projects was to see the documentation of other developments such as the documentation of Nuxt and AdonisJs, in addition to being very similar in their presentation, they generated it in a matter of days and it was not complicated. Much in its presentation, the priority is that it would be available. And on the other hand, I saw some videos from the Spanish developer [@midu](https://www.youtube.com/@midudev){tager=_blank} in which he said a phrase that didn't fit me:
+
+> The vast majority of websites do not require a backend, not even a framework. @midudev
+
+I couldn't understand how someone with such a great track record and experience in development said that these tools were better to avoid. In my head I was just thinking, what if you have a blog, and if you have a store, and if you have a site, how are you going to manage it without a backend?
+
+But aware that we often fall into the “Golden Hammer” problem, I decided to give it a chance and began to investigate how I could create my sites without applying a backend.
+
+## I'll start with a front
+
+Thinking about everything I had seen, I made the first chip change, starting from the front and going back, leaving the backend for last and simply simulating the data with json or some alternative. From day one I began to notice the benefits of following this strategy and that is why I am writing this post.
+
+1. To start from the first day I was able to see results, when you start from the backend you spend a lot of time doing data structures, modeling, relationships, etc., which cannot be shown to the world because even though they have a lot of code and work behind them, they are not connected to something visible. But from the front, each button, each page, each section is an element that you can show and validate with other people.
+2. I disconnected from the data, once I focused only on the front I stopped thinking about data structures and whenever I considered that in this section you can put a button that calls a related video or bring such a thing I just put it, it will be My future self's problem was to see where to get said information from, but this allowed me to think more wildly and freely about how to present all the content on the screen to the point that I was finally happy with the result.
+3. I did not write code that I was not going to use, normally in my projects starting from the back I created some module or tool that at the time of assembling the final application I did not end up using at all, when starting from the front I avoided those problems because everything I was painting it would become a data requirement that will finally be in the application.
+
+## Stop needing the backend
+
+Although my initial idea was simply to change the organization in the development of my projects, each section that I was going to create in the front was populated with data obtained from Json files that in my head would later be connected with a backend API, but for the Halfway through the project I noticed that performance was very good and that content I probably wouldn't change for months and I began to weigh the need to have an administrator versus simply changing the content directly in the Json file. But the big leap came when I discovered this Nuxt package.
+
+## Nuxt Content
+This package reads a project directory (/content) and organizes and parses all the content of .md, .yml, .csv or .json files which for most sites I work with is optimal for managing content, using This package saves me more than half of the time invested in each project since I have forgotten to create backends to manage pages, content, articles and other elements of a site. This post you are reading right now is written in a markdown file within the project and served through Nuxt and the [Nuxt Content plugin](https://nuxt.com/modules/content){target=_blank}. Although I'm still doing tests to see how the plugin performs and how much juice I can extract since I'm still curious to think about how many resources are consumed by parsing files? And what will happen when the number of files is absurd? For now, with very little data, the result has been wonderful, let's hope we continue like this.
+
+## No, I havent left the backend aside.
+Although this has completely changed the way I approach projects and has made me take out projects that I had planned for months to weeks or even days, it does not mean that I will leave the backend aside, since I consider it very useful and also necessary to add all the interactivity with the user and business base, so in many of my projects I built much simpler backends where I operated only with the business structures and left the content solely and exclusively in the front.
+
+For now everything is going smoothly, I will be telling you about my experience with new projects. And as I always say, I hope I have the time to take a Nuxt course with everything I have learned.

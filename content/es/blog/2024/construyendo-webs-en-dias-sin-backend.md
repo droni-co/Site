@@ -6,6 +6,7 @@ created_at: '2024-02-26'
 image: 'https://droni.co/attachments/frontend-vs-backend.webp'
 author: 'Gustavo Barragán'
 author_link: 'https://twitter.com/kalvinmanson'
+translated: '/blog/2024/building-websites-in-days-without-backend'
 ---
 Primero daré un poco de contexto, soy desarrollador hace ya varios años y debo decir que siempre me gusto mas el backend que el frontend, lo que me llevo herramientas como Ruby On Rails, Laravel, Net Core, Adonis, etc, y siempre que me planteaba un nuevo proyecto seguía un camino casi sin modificaciones en el que primero pensaba el modelo de la base de datos, para luego crear migraciones, luego modelos y sus relaciones, luego los controladores para generar un api, luego un administrador para poder gestionar esa data y por último el sitio web en cuestión. Esto normalmente es un proceso que entre su planeación y su ejecución podría llevarme varios meses, sin embargo lo seguía viendo como la ruta óptima y lo aplicaba a todos mis proyectos.
 
