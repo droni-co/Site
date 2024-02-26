@@ -55,6 +55,7 @@
 </template>
 <script setup lang="ts">
 const localePath = useLocalePath()
+const { locale } = useI18n()
 const { t } = useI18n()
-const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent('/blog').sort({ created_at: -1 }).limit(4).find())
+const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent(locale.value === 'es' ? '/es/blog' : '/blog').sort({ created_at: -1 }).limit(4).find())
 </script>

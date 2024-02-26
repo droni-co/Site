@@ -10,14 +10,14 @@
         alt="" />
     </NuxtLink>
     <div class="p-5">
-      <a href="#">
+      <NuxtLink :to="blogPost._path">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-gray-100 hover:text-gray-900 dark:hover:text-gray-300">
           {{ blogPost.title }}
         </h5>
-      </a>
+      </NuxtLink>
       <p class="mb-3 font-normal text-gray-600 dark:text-gray-300">
         <small class="text-gray-500 dark:text-gray-400 block">
-          By {{ blogPost.author }}| {{ blogPost.created_at }}
+          By {{ blogPost.author }} | {{ blogPost.created_at }}
         </small>
         {{ blogPost.description }}
       </p>

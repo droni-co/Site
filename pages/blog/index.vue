@@ -17,5 +17,6 @@
 </template>
 <script setup lang="ts">
 const { t } = useI18n()
-const { data:lastPosts } = await useAsyncData('home', () => queryContent('/blog/2024').sort({ created_at: -1 }).limit(12).find())
+const route = useRoute()
+const { data:lastPosts } = await useAsyncData('home', () => queryContent(route.fullPath).sort({ created_at: -1 }).limit(12).find())
 </script>
