@@ -5,8 +5,12 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-gtag'
   ],
+  gtag: {
+    id: 'G-HB48CY1HBF'
+  },
   app: {
     head: {
       charset: 'utf-8',

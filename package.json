@@ -22,6 +22,7 @@
     "@nuxtjs/i18n": "^8.1.1",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@tailwindcss/typography": "^0.5.10",
+    "nuxt-gtag": "^1.2.1",
     "sass": "^1.71.1"
   }
 }
