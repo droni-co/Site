@@ -57,3 +57,6 @@ Debemos señalar tambien que ni el mismo Microsoft está muy contento con el est
 
 ### Políticas de usuario y estrategias de autenticación
 Mas detalles sobre custom policies en [este articulo de medium](https://medium.com/the-new-control-plane/everything-you-wanted-to-know-about-azure-ad-b2c-custom-policy-samples-but-were-afraid-to-ask-96fa561f1e4d){:target="_blank"}
+
+## Conclusión y ¿Por qué escribo este post?
+Sí creen que este post es una especie de recomendación para exaltar las virtudes de AzureB2C pues no jejejeje, en realidad no soy muy fan de los productos Cloud de Microsoft pero por temas de trabajo he tenido que usarlos y me encuentro en el proceso de interiorizar el conocimiento que he adquirido, por lo que este post es mas bien una serie de notas personales que he decidido compartir con la comunidad.
