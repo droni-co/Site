@@ -28,7 +28,10 @@
           </div>
         </div>
         <div>
-          <img :src="doc.image" class="max-w-80 mx-auto bg-slate-100 dark:bg-slate-700 shadow-lg p-2 my-2 rounded aspect-video" alt="Kosante | Last project" />
+          <NuxtImg
+            :src="doc.image"
+            class="max-w-80 mx-auto bg-slate-100 dark:bg-slate-700 shadow-lg p-2 my-2 rounded"
+            :alt="doc.title" />
         </div>
       </div>
     </UiHero>

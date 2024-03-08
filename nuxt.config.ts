@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/content',
+    '@nuxt/image',
     'nuxt-gtag'
   ],
   gtag: {
@@ -28,9 +29,21 @@ export default defineNuxtConfig({
     vueI18n: './i18n.config.ts' // if you are using custom path, default
   },
   tailwindcss: {
-    
   },
   colorMode: {
     classSuffix: ''
+  },
+  image: {
+    quality: 70,
+    format: ['webp'],
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    }
   }
 })

@@ -4,10 +4,7 @@
     class="bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700
     hover:scale-105 transition-transform">
     <NuxtLink :to="blogPost._path">
-      <img
-        class="rounded-t aspect-video object-cover"
-        :src="blogPost.image"
-        alt="" />
+      <NuxtImg :src="blogPost.image" class="w-full rounded-t aspect-video object-cover" :alt="blogPost.title" />
     </NuxtLink>
     <div class="p-5">
       <NuxtLink :to="blogPost._path">
