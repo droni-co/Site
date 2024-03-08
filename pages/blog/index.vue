@@ -18,8 +18,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const route = useRoute()
-const { data:lastPosts } = await useAsyncData('home', () => queryContent(route.fullPath).sort({ created_at: -1 }).limit(12).find())
-const { data:doc } = await useAsyncData(route.path, () => queryContent(route.fullPath).findOne())
+const { data:lastPosts } = await useAsyncData('home', () => queryContent(route.path).sort({ created_at: -1 }).limit(12).find())
+const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 useSeoMeta({
   title: doc.value?.title,
   ogTitle: doc.value?.title,

@@ -60,7 +60,7 @@ const { t } = useI18n()
 const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent(locale.value === 'es' ? '/es/blog' : '/blog').sort({ created_at: -1 }).limit(4).find())
 
 const route = useRoute()
-const { data:doc } = await useAsyncData(route.path, () => queryContent(route.fullPath).findOne())
+const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 useSeoMeta({
   title: doc.value?.title,
   ogTitle: doc.value?.title,
