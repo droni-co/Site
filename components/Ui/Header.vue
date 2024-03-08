@@ -116,8 +116,4 @@ const changeColorMode = () => {
     colorMode.preference = 'dark'
   }
 }
-/* change local */
-const changeLocale = () => {
-  
-}
 </script>

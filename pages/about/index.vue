@@ -9,11 +9,14 @@
       </div>
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="md:col-span-1">
-          <ContentDoc />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="md:col-span-2">
+          <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8">
+            <ContentDoc />
+          </article>
         </div>
         <div class="md:col-span-1">
+          hola mundo
           <!-- <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
             {{ t('about.who') }}
           </h2>
