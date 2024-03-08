@@ -4,6 +4,6 @@ export default defineEventHandler(async (event) => {
     await sendRedirect(event, urlObj.pathname.replace("/es/posts/", '/es/blog/2024/'), 301)
   }
   if(urlObj.pathname.startsWith('/en/posts/')) {
-    await sendRedirect(event, urlObj.pathname.replace("/en/posts/", '/en/blog/2024/'), 301)
+    await sendRedirect(event, urlObj.pathname.replace("/en/posts/", '/es/blog/2024/'), 301)
   }
 })
