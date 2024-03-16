@@ -16,7 +16,7 @@
           </article>
         </div>
         <div class="md:col-span-1">
-          <h2 class="text-2xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg mt-8 mb-3">
+          <h2 class="text-2xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg md:mt-8 mb-3">
             El equipo
           </h2>
           <BlogUserCard

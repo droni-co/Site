@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg bg-white rounded md:flex dark:bg-slate-900">
+  <div class="shadow-lg bg-white rounded flex dark:bg-slate-900">
     <NuxtImg
       :src="picture"
       class="w-20 object-cover rounded-s"
