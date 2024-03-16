@@ -60,6 +60,7 @@ useSeoMeta({
   ogTitle: doc.value?.title,
   description: doc.value?.description,
   ogDescription:  doc.value?.description,
+  ogType: 'article',
   ogImage: 'https://droni.co'+doc.value?.image,
   twitterCard: 'summary_large_image',
 })

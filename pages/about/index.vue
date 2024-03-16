@@ -16,7 +16,28 @@
           </article>
         </div>
         <div class="md:col-span-1">
-          hola mundo
+          <h2 class="text-2xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg mt-8 mb-3">
+            El equipo
+          </h2>
+          <BlogUserCard
+            class="mb-2"
+            title="Gustavo Barragán"
+            subtitle="Ingeniero de Software"
+            picture="/attachments/gustavo.barragan.webp"
+            link="https://twitter.com/kalvinmanson"/>
+          <BlogUserCard
+            class="mb-2"
+            title="Andrea Diaz"
+            subtitle="Diseñadora Gráfica"
+            picture="/attachments/andrea.diaz.webp"
+            link="https://www.facebook.com/andrea.d.mateus"/>
+          <BlogUserCard
+            class="mb-2"
+            title="Manuel Laverde"
+            subtitle="Copywriter"
+            picture="/attachments/manuel.laverde.webp"
+            link="https://confesionesdeuniletrado.blogspot.com/"/>
+
           <!-- <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
             {{ t('about.who') }}
           </h2>
