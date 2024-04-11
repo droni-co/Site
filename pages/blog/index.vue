@@ -12,13 +12,32 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <BlogCard v-for="lastPost in lastPosts" :key="lastPost._id" :blogPost="lastPost" />
       </div>
+      <input type="button" @click="morePosts" value="Load more" class="btn btn-primary" />
+      {{ page }}
     </div>
   </div>
 </template>
 <script setup lang="ts">
+
 const { t } = useI18n()
 const route = useRoute()
-const { data:lastPosts } = await useAsyncData('home', () => queryContent(route.path).sort({ created_at: -1 }).limit(12).find())
+const page = ref(1)
+
+const morePosts = () => {
+  page.value++
+  getPosts()
+}
+
+const getPosts = async () => {
+  const { data } = await useAsyncData('home', () => queryContent(route.path)
+    .sort({ created_at: -1 })
+    .limit(12 * page.value)
+    .find()
+  )
+  return data
+}
+
+const lastPosts = await getPosts()
 const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 useSeoMeta({
   title: doc.value?.title,
