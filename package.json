@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/content": "^2.12.1",
     "@nuxt/image": "^1.4.0",
+    "@sidebase/nuxt-auth": "^0.7.2",
     "nuxt": "^3.10.3",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
@@ -23,6 +24,7 @@
     "@nuxtjs/i18n": "^8.1.1",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@tailwindcss/typography": "^0.5.10",
+    "bun-types": "^1.1.4",
     "nuxt-gtag": "^1.2.1",
     "sass": "^1.71.1"
   }

@@ -93,12 +93,44 @@
               p-3">
             <i class="i-mdi-theme-light-dark"></i>
           </button>
+          <div class="md:flex">
+            <div class="py-2 md:flex">
+              <img
+                v-if="data?.user?.image"
+                :src="data.user.image"
+                class="w-8 h-8 rounded-full mx-auto"
+                :alt="data?.user?.name ?? ''"
+              />
+            </div>
+            <button
+            v-if="status === 'authenticated'"
+            @click="closeSession"
+            class="text-xl
+              transition
+              hover:text-gray-600
+              dark:text-gray-50
+              dark:hover:text-gray-400
+              p-3">
+              <i class="i-mdi-logout"></i>
+            </button>
+            <button
+              v-else
+              @click="signIn('google')"
+              class="mx-auto bg-blue-500 hover:bg-blue-400 text-white font-bold my-1 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-full flex">
+              <i class="i-mdi-google mt-3"></i>
+              <span class="p-2">
+                {{ $t('header.menu.login') }}
+              </span>
+              
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </header>
 </template>
 <script setup lang="ts">
+const { status, data, signIn, signOut   } = useAuth()
 const mobileMenuOpen = ref(false)
 const colorMode = useColorMode()
 const { locale } = useI18n()
@@ -115,5 +147,9 @@ const changeColorMode = () => {
   } else {
     colorMode.preference = 'dark'
   }
+}
+// Close session
+const closeSession = () => {
+  signOut()
 }
 </script>

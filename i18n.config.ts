@@ -14,7 +14,8 @@ export default defineI18nConfig(() => ({
           about: 'About',
           services: 'Services',
           projects: 'Projects',
-          contact: 'Contact'
+          contact: 'Contact',
+          login: 'Login',
         },
         search: 'Search...'
       },
@@ -47,7 +48,8 @@ export default defineI18nConfig(() => ({
           about: 'Acerca de',
           services: 'Servicios',
           projects: 'Proyectos',
-          contact: 'Contacto'
+          contact: 'Contacto',
+          login: 'Iniciar sesión',
         },
         search: 'Buscar...'
       },

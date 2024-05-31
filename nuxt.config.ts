@@ -7,8 +7,14 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-gtag'
+    'nuxt-gtag',
+    "@sidebase/nuxt-auth"
   ],
+  auth: {
+    provider: {
+      type: 'authjs'
+    }
+  },
   gtag: {
     id: 'G-HB48CY1HBF'
   },
