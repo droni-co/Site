@@ -3,6 +3,7 @@ export default defineI18nConfig(() => ({
   locale: 'en',
   messages: {
     en: {
+      code: 'en',
       header: {
         title: 'Droni.co | Smart development',
         subtitle: 'We transform ideas into innovative digital solutions.',
@@ -37,6 +38,7 @@ export default defineI18nConfig(() => ({
       }
     },
     es: {
+      code: 'es',
       header: {
         title: 'Droni.co | Desarrollo inteligente',
         subtitle: 'Transformamos ideas en soluciones digitales innovadoras.',
