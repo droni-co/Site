@@ -47,7 +47,7 @@
           {{ t('blog.lastPosts') }}
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <BlogCard v-for="lastPost in lastPosts" :key="lastPost.id" :blogPost="lastPost" />
+          <BlogCard v-for="lastPost in lastPosts?.data" :key="lastPost.id" :post="lastPost" />
         </div>
       </div>
     </section>
@@ -57,16 +57,15 @@
 const localePath = useLocalePath()
 const { locale } = useI18n()
 const { t } = useI18n()
-const { data:lastPosts } = await useAsyncData('hddddome', () => queryContent(locale.value === 'es' ? '/es/blog' : '/blog').sort({ created_at: -1 }).limit(4).find())
+const { data:lastPosts } = useFetch<Pagination<Post[]>>(`/api/appi/posts?limit=4&lang=${locale.value}`)
 
 const route = useRoute()
-const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 useSeoMeta({
-  title: doc.value?.title,
-  ogTitle: doc.value?.title,
-  description: doc.value?.description,
-  ogDescription:  doc.value?.description,
-  ogImage: doc.value?.image,
+  title: t('header.title'),
+  ogTitle: t('header.title'),
+  description: t('header.subtitle'),
+  ogDescription: t('header.subtitle'),
+  ogImage: 'https://dronico.nyc3.digitaloceanspaces.com/4ebaccf5-b863-4f12-aa49-9bbe0e1844e2/db7d4d54-7354-4421-9682-d1b75b1f1413/74529-dronico-card.png.png',
   twitterCard: 'summary_large_image',
 })
 </script>

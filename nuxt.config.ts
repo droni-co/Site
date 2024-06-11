@@ -52,5 +52,8 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     }
-  }
+  },
+  routeRules: {
+    '/es/blog/2024/comandos-basicos-para-empezar-con-la-consola-o-terminal': { redirect: '/es/blog' }
+  },
 })

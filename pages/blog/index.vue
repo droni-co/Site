@@ -10,41 +10,39 @@
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto py-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <BlogCard v-for="lastPost in lastPosts" :key="lastPost._id" :blogPost="lastPost" />
+        <BlogCard v-for="post in posts.data" :key="post.slug" :post="post" />
       </div>
       <input type="button" @click="morePosts" value="Load more" class="btn btn-primary" />
-      {{ page }}
+      {{ filters.page }}
     </div>
   </div>
 </template>
 <script setup lang="ts">
-
 const { t } = useI18n()
-const route = useRoute()
-const page = ref(1)
+const { locale } = useI18n()
+const filters = ref({ page: 1, limit: 12 })
 
 const morePosts = () => {
-  page.value++
-  getPosts()
+  filters.value.page++
+  getPosts({npage: filters.value.page, nperPage: filters.value.limit})  
 }
 
-const getPosts = async () => {
-  const { data } = await useAsyncData('home', () => queryContent(route.path)
-    .sort({ created_at: -1 })
-    .limit(12 * page.value)
-    .find()
-  )
-  return data
+const posts = ref(
+  (await useFetch<Pagination<Post[]>>(`/api/appi/posts?limit=${filters.value.limit}&lang=${locale.value}`)).data.value
+  ?? { data: []}
+)
+const getPosts = async ({npage=1, nperPage=20}) => {
+  filters.value = { limit: nperPage, page: npage }
+  const data = await $fetch<Pagination<Post[]>>(`/api/appi/posts?limit=${filters.value.limit}&lang=${locale.value}&page=${filters.value.page}`)
+  posts.value = data ?? { data: []}  
 }
 
-const lastPosts = await getPosts()
-const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 useSeoMeta({
-  title: doc.value?.title,
-  ogTitle: doc.value?.title,
-  description: doc.value?.description,
-  ogDescription:  doc.value?.description,
-  ogImage: doc.value?.image,
+  title: t('blog.title'),
+  ogTitle: t('blog.title'),
+  description: t('blog.subtitle'),
+  ogDescription: t('blog.subtitle'),
+  ogImage: 'https://dronico.nyc3.digitaloceanspaces.com/4ebaccf5-b863-4f12-aa49-9bbe0e1844e2/db7d4d54-7354-4421-9682-d1b75b1f1413/74529-dronico-card.png.png',
   twitterCard: 'summary_large_image',
 })
 </script>

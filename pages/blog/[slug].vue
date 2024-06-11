@@ -1,71 +1,73 @@
 <template>
-  <div v-if="doc">
+  <div v-if="post">
     <UiHero>
       <div class="text-center md:text-start py-6 md:flex">
         <div class="grow my-auto">
           <h1 class="text-balance text-3xl lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
-            {{ doc?.title }}
+            {{ post?.name }}
           </h1>
-          <h4 class="py-2 text-balance">{{ doc.description }}</h4>
+          <h4 class="py-2 text-balance">{{ post.description }}</h4>
           <div class="py-2">
-            <NuxtLink :to="doc.translated" class="text-balance" v-if="doc.translated">
+            <NuxtLink v-if="getProp('en_version')" :to="getProp('en_version')" class="text-balance">
               <UiPill>
                 <i class="i-mdi-translate"></i>
-                {{ locale === 'en' ? 'Versión en Español' : 'English Version' }}
+                English Version
               </UiPill>
             </NuxtLink>
-            <UiPill :to="doc.author_link">
+            <UiPill to="/">
               <i class="i-mdi-account"></i>
-              {{ doc?.author }}
+              {{ post?.user?.name }}
             </UiPill>
             <UiPill>
               <i class="i-mdi-calendar"></i>
-              {{ doc?.created_at }}
-            </UiPill>
-            <UiPill v-for="tag in doc.tags" :key="tag" class="me-2">
-              {{ tag }}
+              {{ post?.createdAt }}
             </UiPill>
           </div>
         </div>
         <div>
           <NuxtImg
-            :src="doc.image"
+            v-if="post.image"
+            :src="post.image"
             class="max-w-80 mx-auto bg-slate-100 dark:bg-slate-700 shadow-lg p-2 my-2 rounded"
-            :alt="doc.title" />
+            :alt="post.name" />
         </div>
       </div>
     </UiHero>
     <div class="container mx-auto px-2 md:px-auto py-4">
-      <div class="aspect-video" v-if="doc.video">
+      <div class="aspect-video" v-if="getProp('video')">
         <iframe
-          :src="getVideoUrl(doc.video)"
-          :title="doc.title"
+          :src="getVideoUrl(getProp('video'))"
+          :title="post.name"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
           class="w-full h-full">
           </iframe>
       </div>
-      <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8">
-        <ContentDoc />
-      </article>
+      <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8" v-html="markdown.render(String(post.content))" />
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import MarkdownIt from "markdown-it";
+const markdown = new MarkdownIt();
 const route = useRoute()
 const { locale } = useI18n()
-const { data:doc } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+const { data:post } = useFetch<Post>(`/api/appi/posts/${route.params.slug}`)
+
 useSeoMeta({
-  title: doc.value?.title,
-  ogTitle: doc.value?.title,
-  description: doc.value?.description,
-  ogDescription:  doc.value?.description,
+  title: post.value?.name,
+  ogTitle: post.value?.name,
+  description: post.value?.description,
+  ogDescription:  post.value?.description,
   ogType: 'article',
-  ogImage: 'https://droni.co'+doc.value?.image,
+  ogImage: post.value?.image,
   twitterCard: 'summary_large_image',
 })
-const getVideoUrl = (url: string) => {
-  let videoId = url.split('v=')[1]
+const getProp = (name: string) => {
+  return post.value?.props?.find(prop => prop.name === name)?.value
+}
+const getVideoUrl = (video:string) => {
+  let videoId = video.split('v=')[1]
   const ampersandPosition = videoId.indexOf('&')
   if (ampersandPosition !== -1) {
     videoId = videoId.substring(0, ampersandPosition)
