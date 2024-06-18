@@ -14,6 +14,12 @@
                 English Version
               </UiPill>
             </NuxtLink>
+            <NuxtLink v-if="getProp('es_version')" :to="getProp('es_version')" class="text-balance">
+              <UiPill>
+                <i class="i-mdi-translate"></i>
+                Versión en español
+              </UiPill>
+            </NuxtLink>
             <UiPill to="/">
               <i class="i-mdi-account"></i>
               {{ post?.user?.name }}
