@@ -65,6 +65,20 @@
                 dark:hover:text-gray-400">
               {{ $t('header.menu.projects') }}
             </nuxt-link>
+            <nuxt-link
+              :to="localePath('/live')"
+              class="group block p-2 text-end
+                md:inline-block md:py-1 md:px-3
+                border border-purple-700 rounded-full
+                transition
+                hover:bg-purple-700
+                hover:text-white
+                dark:text-gray-50
+                dark:hover:text-gray-400
+                dark:hover:text-white">
+              {{ $t('header.menu.live') }}
+              <i class="i-mdi-twitch text-purple-700 animate-ping md:absolute group-hover:text-zinc-100"></i>
+            </nuxt-link>
           </nav>
           <div>
             <input
