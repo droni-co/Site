@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex h-screen">
+  <div class="md:flex">
     <div class="grow">
       <iframe
         class="w-full aspect-video"
