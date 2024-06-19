@@ -4,7 +4,14 @@
     dark:bg-gray-900
     ">
     <div class="container mx-auto py-6 px-3 text-center">
-      <p class="text-sm">&copy; 2024 {{ $t('footer.copy') }}</p>
+      <p class="text-sm">
+        <i class="i-mdi-copyleft"></i> 2024 {{ $t('footer.copy') }}.
+        <NuxtLink
+          :to="localePath('/legal')"
+          title="Legal">
+          Legal
+        </NuxtLink>
+      </p>
       <a
         href="https://twitter.com/droni_co"
         class="transition
@@ -37,3 +44,6 @@
     </div>
   </footer>
 </template>
+<script setup lang="ts">
+const localePath = useLocalePath()
+</script>
