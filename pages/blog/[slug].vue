@@ -59,9 +59,13 @@
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 const route = useRoute()
-const { locale } = useI18n()
 const { data:post } = await useFetch<Post>(`/api/appi/posts/${route.params.slug}`)
 
+useHead({
+  link: [
+    { rel: 'canonical', href: `https://droni.co/blog/${post.value?.slug}` }
+  ]
+})
 useSeoMeta({
   title: post.value?.name,
   ogTitle: post.value?.name,
@@ -70,6 +74,7 @@ useSeoMeta({
   ogType: 'article',
   ogImage: post.value?.image,
   twitterCard: 'summary_large_image',
+  ogUrl: `https://droni.co/blog/${post.value?.slug}`
 })
 const getProp = (name: string) => {
   return post.value?.props?.find(prop => prop.name === name)?.value
