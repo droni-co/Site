@@ -54,6 +54,10 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
+    '/es/blog/2024/auxilio-no-se-si-me-bloquearon-en-whatsapp': { redirect: '/es/blog/auxilio-no-se-si-me-bloquearon-en-whatsapp' },
+    '/es/blog/2024/comandos-basicos-para-empezar-con-la-consola-o-terminal': { redirect: '/es/blog/comandos-basicos-para-empezar-con-la-consola-o-terminal' },
+    '/es/blog/2024/tus-fotografias-de-instagram-pueden-llevarte-a-la-carcel': { redirect: '/es/blog/tus-fotografias-de-instagram-pueden-llevarte-a-la-carcel' },
+    '/es/posts/por-que-se-rompen-o-queman-los-votos-en-las-elecciones': { redirect: '/es/blog/por-que-se-rompen-o-queman-los-votos-en-las-elecciones' },
     '/es/blog/2024/algunas-nociones-de-autenticacion-y-autorizacion-con-azure-b2c': { redirect: '/es/blog/algunas-nociones-de-autenticacion-y-autorizacion-con-azure-b2c' },
     '/es/blog/2024/construyendo-webs-en-dias-sin-backend': { redirect: '/es/blog/construyendo-webs-en-dias-sin-backend' },
     '/es/blog/2024/comenzando-de-nuevo': { redirect: '/es/blog/comenzando-de-nuevo' },
