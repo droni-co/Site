@@ -50,6 +50,8 @@
           </iframe>
       </div>
       <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8" v-html="markdown.render(String(post.content))" />
+      <LazyBlogCommentsList :post="post" />
+      <LazyBlogCommentsAdd :post="post" :parent-id="0" />
     </div>
   </div>
 </template>

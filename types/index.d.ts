@@ -100,5 +100,18 @@ declare global {
     name: string,
     value: any
   }
+
+  export interface Comment {
+    id: number
+    postId: number
+    userId: string
+    parentId: number
+    content: string
+    approved: number
+    createdAt: string
+    updatedAt: string
+    user?: User
+    children?: Comment[]
+  }
   
 }
