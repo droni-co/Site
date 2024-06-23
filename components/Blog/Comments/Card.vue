@@ -12,7 +12,7 @@
         Deleted
       </div>
     </div>
-    <pre class="text-gray-500 dark:text-gray-400 px-7">{{ comment.content }}</pre>
+    <p class="text-gray-500 dark:text-gray-400 px-7">{{ comment.content }}</p>
     <div class="px-7">
       <LazyBlogCommentsCard v-for="child in comment.children" :key="child.id" :post="post" :comment="child" />
       <LazyBlogCommentsAdd :post="post" :parent-id="comment.id" v-if="comment.parentId === 0 && showForm" />
@@ -21,7 +21,6 @@
         Reply
       </button>
     </div>
-
   </div>
 </template>
 <script setup lang="ts">

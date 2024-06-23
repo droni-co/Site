@@ -37,7 +37,6 @@ const createComment = () => {
     body: JSON.stringify(newComment.value),
   }).then((comment:Comment) => {
     publishedComment.value = comment
-    console.log(comment)
   })
   newComment.value = { parentId: 0, content: '' }
 }
