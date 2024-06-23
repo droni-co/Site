@@ -63,7 +63,7 @@ const { data:post } = await useFetch<Post>(`/api/appi/posts/${route.params.slug}
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://droni.co/blog/${post.value?.slug}` }
+    { rel: 'canonical', href: `https://droni.co/${post.value?.lang === 'es' ? 'es/' : ''}blog/${post.value?.slug}` }
   ]
 })
 useSeoMeta({
@@ -74,7 +74,7 @@ useSeoMeta({
   ogType: 'article',
   ogImage: post.value?.image,
   twitterCard: 'summary_large_image',
-  ogUrl: `https://droni.co/blog/${post.value?.slug}`
+  ogUrl: `https://droni.co/${post.value?.lang === 'es' ? 'es/' : ''}blog/${post.value?.slug}`
 })
 const getProp = (name: string) => {
   return post.value?.props?.find(prop => prop.name === name)?.value
