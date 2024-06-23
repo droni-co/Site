@@ -60,7 +60,7 @@ import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 const route = useRoute()
 const { locale } = useI18n()
-const { data:post } = useFetch<Post>(`/api/appi/posts/${route.params.slug}`)
+const { data:post } = await useFetch<Post>(`/api/appi/posts/${route.params.slug}`)
 
 useSeoMeta({
   title: post.value?.name,
