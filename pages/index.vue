@@ -21,9 +21,9 @@
             {{ t('header.description') }} 
           </p>
           <UiAction 
-            :to="localePath('/about')"
+            to="https://discord.gg/paaFehun"
             :title="t('header.action')">
-            <i class="i-mdi-rocket-launch-outline me-3"></i> 
+            <i class="i-mdi-discord me-3"></i>
             {{ t('header.action') }}
           </UiAction>
         </div>

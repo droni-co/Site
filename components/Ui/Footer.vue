@@ -41,6 +41,15 @@
           text-2xl">
         <i class="i-mdi-linkedin"></i>
       </a>
+      <a href="https://discord.gg/paaFehun"
+        class="transition
+          inline-block
+          p-3
+          text-blue-400 
+          hover:text-blue-300
+          text-2xl">
+        <i class="i-mdi-discord"></i>
+      </a>
     </div>
   </footer>
 </template>

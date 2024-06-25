@@ -38,6 +38,16 @@
             picture="/attachments/manuel.laverde.webp"
             link="https://confesionesdeuniletrado.blogspot.com/"/>
 
+          <p class="pb-3">
+            Tenemos un canal de discord para que puedas unirte a nuestra comunidad y compartir tus ideas.
+          </p>
+          <UiAction 
+            to="https://discord.gg/paaFehun"
+            title="Discord Dronico">
+            <i class="i-mdi-discord me-3"></i>
+            Unirme al Discord
+          </UiAction>
+
           <!-- <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
             {{ t('about.who') }}
           </h2>

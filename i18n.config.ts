@@ -32,7 +32,7 @@ export default defineI18nConfig(() => ({
         title: 'About us',
         subtitle: 'We are a team of professionals passionate about technology and innovation.',
         description: 'We are a team of professionals passionate about technology and innovation. We transform ideas into innovative digital solutions.',
-        action: 'Get in touch'
+        action: 'Join us'
       },
       footer: {
         copy: 'Built with hard work and many cofee by Droni.co team'
@@ -44,7 +44,7 @@ export default defineI18nConfig(() => ({
         title: 'Droni.co | Desarrollo inteligente',
         subtitle: 'Transformamos ideas en soluciones digitales innovadoras.',
         description: 'Somos el Wozniak de tu Jobs, somos la malta de tu pastelito, somos el Spock de tu Kirk, somos el Doc Brown de tu Mcfly -creo que ya lo entendiste.',
-        action: 'Ponte en contacto',
+        action: 'Unete a nosotros',
         menu: {
           home: 'Inicio',
           blog: 'Blog',
