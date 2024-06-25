@@ -45,7 +45,7 @@
                 dark:hover:text-gray-400">
               {{ $t('header.menu.about') }}
             </nuxt-link>
-            <nuxt-link
+            <!-- <nuxt-link
               :to="localePath('/services')"
               class="block border-b border-gray-700 p-2 text-end
                 md:inline-block md:border-none md:p-3
@@ -54,7 +54,7 @@
                 dark:text-gray-50
                 dark:hover:text-gray-400">
               {{ $t('header.menu.services') }}
-            </nuxt-link>
+            </nuxt-link> -->
             <nuxt-link
               :to="localePath('/projects')"
               class="block p-2 text-end
