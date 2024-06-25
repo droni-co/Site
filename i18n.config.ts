@@ -29,10 +29,11 @@ export default defineI18nConfig(() => ({
         lastPosts: 'Last posts in blog'
       },
       about: {
-        title: 'About us',
-        subtitle: 'We are a team of professionals passionate about technology and innovation.',
-        description: 'We are a team of professionals passionate about technology and innovation. We transform ideas into innovative digital solutions.',
-        action: 'Join us'
+        team: 'Our team',
+        discord: {
+          action: 'Join our Discord community',
+          description: 'Join our Discord community and be part of our discussions, events, and more.',
+        }
       },
       footer: {
         copy: 'Built with hard work and many cofee by Droni.co team'
@@ -63,6 +64,13 @@ export default defineI18nConfig(() => ({
         description: 'Escribimos sobre tecnología, desarrollo, diseño y más. Compartimos nuestro conocimiento y experiencia contigo.',
         action: 'Leer más',
         lastPosts: 'Últimas entradas en el blog'
+      },
+      about: {
+        team: 'Nuestro equipo',
+        discord: {
+          action: 'Comunidad en Discord',
+          description: 'Únete a nuestra comunidad de Discord y sé parte de nuestras discusiones, eventos y más.',
+        }
       },
       footer: {
         copy: 'Construido con trabajo duro y mucho café por el equipo de Droni.co'

@@ -21,7 +21,7 @@
             {{ t('header.description') }} 
           </p>
           <UiAction 
-            to="https://discord.gg/paaFehun"
+            to="https://discord.gg/gSYN7J2x"
             :title="t('header.action')">
             <i class="i-mdi-discord me-3"></i>
             {{ t('header.action') }}
@@ -54,7 +54,6 @@
   </div>
 </template>
 <script setup lang="ts">
-const localePath = useLocalePath()
 const { locale } = useI18n()
 const { t } = useI18n()
 const { data:lastPosts } = useFetch<Pagination<Post[]>>(`/api/appi/posts?limit=4&lang=${locale.value}`)

@@ -17,7 +17,7 @@
         </div>
         <div class="md:col-span-1">
           <h2 class="text-2xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg md:mt-8 mb-3">
-            El equipo
+            {{ t('about.team') }}
           </h2>
           <BlogUserCard
             class="mb-2"
@@ -39,34 +39,21 @@
             link="https://confesionesdeuniletrado.blogspot.com/"/>
 
           <p class="pb-3">
-            Tenemos un canal de discord para que puedas unirte a nuestra comunidad y compartir tus ideas.
+            {{ t('about.discord.description') }}
           </p>
           <UiAction 
-            to="https://discord.gg/paaFehun"
+            to="https://discord.gg/gSYN7J2x"
             title="Discord Dronico">
             <i class="i-mdi-discord me-3"></i>
-            Unirme al Discord
+            {{ t('about.discord.action') }}
           </UiAction>
-
-          <!-- <h2 class="text-3xl font-extrabold text-gray-800 dark:text-gray-50 drop-shadow-lg">
-            {{ t('about.who') }}
-          </h2>
-          <p class="text-xl my-5">
-            {{ t('about.description') }}
-          </p>
-          <UiAction 
-            :to="localePath('/contact')"
-            :title="t('about.action')">
-            <i class="i-mdi-email-outline me-3"></i> 
-            {{ t('about.action') }}
-          </UiAction> -->
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const localePath = useLocalePath()
+const { t } = useI18n()
 const route = useRoute()
 const { data:doc } = await useAsyncData('page-data', () => queryContent(route.fullPath).findOne())
 </script>
