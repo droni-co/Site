@@ -39,7 +39,7 @@
         </div>
       </div>
     </UiHero>
-    <div class="container mx-auto px-2 md:px-auto py-4">
+    <div class="container xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-2 md:px-auto py-4">
       <div class="aspect-video" v-if="getProp('video')">
         <iframe
           :src="getVideoUrl(getProp('video'))"

@@ -12,11 +12,11 @@
         Deleted
       </div>
     </div>
-    <p class="text-gray-500 dark:text-gray-400 px-7">{{ comment.content }}</p>
+    <p class="text-gray-500 dark:text-gray-600 px-7">{{ comment.content }}</p>
     <div class="px-7">
       <LazyBlogCommentsCard v-for="child in comment.children" :key="child.id" :post="post" :comment="child" />
       <LazyBlogCommentsAdd :post="post" :parent-id="comment.id" v-if="comment.parentId === 0 && showForm" />
-      <button @click="showForm = !showForm" class="btn btn-sm mt-2" v-if="comment.parentId === 0 && !showForm && !commentDeleted">
+      <button @click="showForm = !showForm" class="btn btn-sm mt-2 dark:text-zinc-500" v-if="comment.parentId === 0 && !showForm && !commentDeleted">
         <i class="i-mdi-reply"></i> 
         Reply
       </button>

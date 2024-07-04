@@ -3,7 +3,7 @@
     <LazyBlogCommentsCard v-if="publishedComment" :post="post" :comment="publishedComment" />
     <form @submit.prevent="createComment" v-else>
       <textarea v-model="newComment.content" class="block w-full p-2 m-0 mb-0 border rounded" placeholder="Write a comment"></textarea>
-      <button type="submit" class="bg-gray-800 text-gray-100 px-3 py-1 m-0 rounded-b-lg ms-7 shadow">
+      <button type="submit" class="bg-gray-800 text-gray-100 px-3 py-1 m-0 rounded-b-lg ms-7 shadow dark:bg-zinc-100 dark:text-gray-800">
         <i class="i-mdi-send"></i>
         Send reply
       </button>

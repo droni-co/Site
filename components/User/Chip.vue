@@ -5,10 +5,10 @@
       <img
         :src="user.avatar"
         :alt="user.name"
-        class="relative inline-block h-full w-full -translate-x-0.5 !rounded-full  object-cover object-center" />
+        class="relative inline-block h-full w-full -translate-x-0.5 !rounded-full object-cover object-center" />
     </div>
     <span class="ml-[18px]">
-      <p class="block text-sm antialiased font-medium leading-none capitalize">
+      <p class="block text-sm antialiased font-medium leading-none capitalize dark:text-zinc-500">
         {{ user.name }}
       </p>
     </span>
