@@ -39,7 +39,7 @@
         </div>
       </div>
     </UiHero>
-    <div class="container xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-2 md:px-auto py-4">
+    <div class="container mx-auto">
       <div class="aspect-video" v-if="getProp('video')">
         <iframe
           :src="getVideoUrl(getProp('video'))"
@@ -49,6 +49,8 @@
           class="w-full h-full">
           </iframe>
       </div>
+    </div>
+    <div class="container xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-2 md:px-auto py-4">
       <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8" v-html="markdown.render(String(post.content))" />
       <LazyBlogCommentsList :post="post" />
       <LazyBlogCommentsAdd :post="post" :parent-id="0" />
