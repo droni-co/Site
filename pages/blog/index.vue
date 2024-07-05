@@ -12,6 +12,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <BlogCard v-for="post in posts.data" :key="post.slug" :post="post" />
       </div>
+      <div class="text-center py-4">
+        Preparing Pagination  
+      </div>
       <input type="button" @click="morePosts" value="Load more" class="btn btn-primary" />
       {{ filters.page }}
     </div>
