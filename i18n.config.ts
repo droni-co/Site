@@ -35,6 +35,14 @@ export default defineI18nConfig(() => ({
           description: 'Join our Discord community and be part of our discussions, events, and more.',
         }
       },
+      projects: {
+        slug: 'projects',
+        title: 'Projects',
+        subtitle: 'We have worked on many projects, here are some of them.',
+        description: 'We have worked on many projects, here are some of them.',
+        action: 'View project',
+        lastProjects: 'Last projects'
+      },
       footer: {
         copy: 'Built with hard work and many cofee by Droni.co team'
       }
@@ -71,6 +79,14 @@ export default defineI18nConfig(() => ({
           action: 'Comunidad en Discord',
           description: 'Únete a nuestra comunidad de Discord y sé parte de nuestras discusiones, eventos y más.',
         }
+      },
+      projects: {
+        slug: 'proyectos',
+        title: 'Proyectos',
+        subtitle: 'Hemos trabajado en muchos proyectos, aquí tienes algunos de ellos.',
+        description: 'Hemos trabajado en muchos proyectos, aquí tienes algunos de ellos.',
+        action: 'Ver proyecto',
+        lastProjects: 'Últimos proyectos'
       },
       footer: {
         copy: 'Construido con trabajo duro y mucho café por el equipo de Droni.co'
