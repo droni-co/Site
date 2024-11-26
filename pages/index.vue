@@ -6,7 +6,7 @@
           <h2 class="text-gray-400
             text-2xl
             md:text-4xl">
-            {{ t('header.title') }}
+            Droni.co | Desarrollo inteligente
           </h2>
           <h1 class="text-balance
             font-extrabold 
@@ -15,16 +15,16 @@
             dark:text-gray-50
             text-3xl
             md:text-6xl">
-            {{ t('header.subtitle') }}
+            Transformamos ideas en soluciones digitales innovadoras.
           </h1>
           <p class="text-xl my-5">
-            {{ t('header.description') }} 
+            Somos el Wozniak de tu Jobs, somos la malta de tu pastelito, somos el Spock de tu Kirk, somos el Doc Brown de tu Mcfly -creo que ya lo entendiste.
           </p>
           <UiAction 
-            to="https://discord.gg/gSYN7J2x"
-            :title="t('header.action')">
-            <i class="i-mdi-discord me-3"></i>
-            {{ t('header.action') }}
+            to="https://discord.com/channels/1255198066080874527/1255198066080874529"
+            title="Unete a nosotros en discord">
+            <i class="mdi mdi-discord me-3"></i>
+            Unete a nosotros
           </UiAction>
         </div>
         <div class="lg:w-1/2 order-first md:order-1 pt-10 md:pt-0">
@@ -44,7 +44,7 @@
           text-gray-800
           dark:text-gray-100
           drop-shadow-lg">
-          {{ t('blog.lastPosts') }}
+          últimos posts en el blog
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <BlogCard v-for="lastPost in lastPosts?.data" :key="lastPost.id" :post="lastPost" />
@@ -54,16 +54,14 @@
   </div>
 </template>
 <script setup lang="ts">
-const { locale } = useI18n()
-const { t } = useI18n()
-const { data:lastPosts } = useFetch<Pagination<Post[]>>(`/api/appi/posts?limit=4&lang=${locale.value}`)
+const { data:lastPosts } = useFetch<Pagination<Post[]>>(`/api/appi/posts?itemsPerPage=4`)
 
 const route = useRoute()
 useSeoMeta({
-  title: t('header.title'),
-  ogTitle: t('header.title'),
-  description: t('header.subtitle'),
-  ogDescription: t('header.subtitle'),
+  title: 'Droni.co | Desarrollo inteligente',
+  ogTitle: 'Droni.co | Desarrollo inteligente',
+  description: 'Transformamos ideas en soluciones digitales innovadoras.',
+  ogDescription: 'Transformamos ideas en soluciones digitales innovadoras.',
   ogImage: 'https://dronico.nyc3.digitaloceanspaces.com/4ebaccf5-b863-4f12-aa49-9bbe0e1844e2/db7d4d54-7354-4421-9682-d1b75b1f1413/74529-dronico-card.png.png',
   twitterCard: 'summary_large_image',
 })
