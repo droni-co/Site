@@ -5,9 +5,9 @@
     ">
     <div class="container mx-auto py-6 px-3 text-center">
       <p class="text-sm">
-        <i class="i-mdi-copyleft"></i> 2024 {{ $t('footer.copy') }}.
+        <i class="mdi mdi-copyleft"></i> 2024 Construido con trabajo duro y mucho café por el equipo de Droni.co.
         <NuxtLink
-          :to="localePath('/legal')"
+          to="/legal"
           title="Legal">
           Legal
         </NuxtLink>
@@ -20,7 +20,7 @@
           text-blue-400 
           hover:text-blue-300
           text-2xl">
-        <i class="i-mdi-twitter"></i>
+        <i class="mdi mdi-twitter"></i>
       </a> 
       <a
         href="https://www.facebook.com/fan.droni.co/"
@@ -30,7 +30,7 @@
           text-blue-400 
           hover:text-blue-300
           text-2xl">
-        <i class="i-mdi-facebook"></i>
+        <i class="mdi mdi-facebook"></i>
       </a>
       <a href="https://co.linkedin.com/company/droni-co"
         class="transition
@@ -39,7 +39,7 @@
           text-blue-400 
           hover:text-blue-300
           text-2xl">
-        <i class="i-mdi-linkedin"></i>
+        <i class="mdi mdi-linkedin"></i>
       </a>
       <a href="https://discord.gg/paaFehun"
         class="transition
@@ -48,11 +48,8 @@
           text-blue-400 
           hover:text-blue-300
           text-2xl">
-        <i class="i-mdi-discord"></i>
+        <i class="mdi mdi-discord"></i>
       </a>
     </div>
   </footer>
 </template>
-<script setup lang="ts">
-const localePath = useLocalePath()
-</script>

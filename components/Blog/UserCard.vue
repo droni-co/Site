@@ -14,7 +14,7 @@
     </div>
     <div class="align-bottom">
       <a :href="link" target="_blank" :title="title" class="block p-2">
-        <i class="i-mdi-open-in-new text-2xl"></i>
+        <i class="mdi mdi-open-in-new text-2xl"></i>
       </a>
     </div>
   </div>

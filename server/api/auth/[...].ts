@@ -8,18 +8,17 @@ export default NuxtAuthHandler({
       if (account) {
         try { 
           /* Call Appi login */
-          await $fetch(`${process.env.APPI}/${process.env.APPI_SITE_ID}/login`, {
+          await $fetch(`${process.env.APPI}/login`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'Key': String(process.env.APPI_SITE_KEY),
+              'Content-Type': 'application/json'
             },
             body: {
-              access_token: account.access_token,
+              token: account.access_token,
               provider: 'google',
-              lang: 'es'
+              siteId: process.env.APPI_SITE_ID
             }
-          }).then((res) => {
+          }).then((res:any) => {
             token.accessToken = res.token
           })
         } catch (error) {

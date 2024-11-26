@@ -18,16 +18,12 @@
   </div>
 </template>
 <script setup lang="ts">
-const localePath = useLocalePath()
-const { locale } = useI18n()
-const { t } = useI18n()
-
 const route = useRoute()
 useSeoMeta({
-  title: t('header.title') + ' | Live',
-  ogTitle: t('header.title') + ' | Live',
-  description: t('header.subtitle'),
-  ogDescription: t('header.subtitle'),
+  title: 'Droni.co | Live',
+  ogTitle: 'Droni.co | Live',
+  description: 'Estamos en vivo con el mejor contenido de desarrollo web y tecnología.',
+  ogDescription: 'Estamos en vivo con el mejor contenido de desarrollo web y tecnología.',
   ogImage: 'https://dronico.nyc3.digitaloceanspaces.com/4ebaccf5-b863-4f12-aa49-9bbe0e1844e2/db7d4d54-7354-4421-9682-d1b75b1f1413/74529-dronico-card.png.png',
   twitterCard: 'summary_large_image',
 })

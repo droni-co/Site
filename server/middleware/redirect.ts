@@ -1,11 +1,18 @@
 export default defineEventHandler(async (event) => {
   const urlObj = getRequestURL(event)
   const host = event.node.req.headers.host
-  if(urlObj.pathname.startsWith('/es/posts/')) {
-    await sendRedirect(event, urlObj.pathname.replace("/es/posts/", '/es/blog/'), 301)
-  }
-  if(urlObj.pathname.startsWith('/en/posts/')) {
-    await sendRedirect(event, urlObj.pathname.replace("/en/posts/", '/es/blog/'), 301)
+  if(
+    urlObj.pathname.startsWith('/es/posts/') ||
+    urlObj.pathname.startsWith('/en/posts/') ||
+    urlObj.pathname.startsWith('/es/blog/') ||
+    urlObj.pathname.startsWith('/en/blog/')
+  ) {
+    const newPath = urlObj.pathname
+      .replace('/es/posts/', '/blog/')
+      .replace('/en/posts/', '/blog/')
+      .replace('/es/blog/', '/blog/')
+      .replace('/en/blog/', '/blog/')
+    await sendRedirect(event, newPath, 301)
   }
 
   // remove www

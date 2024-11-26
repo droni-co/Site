@@ -5,12 +5,11 @@ export default defineEventHandler(async (event) => {
   const appiToken = token?.accessToken as AppiToken
   const endpoint = String(event.node.req.url).replace('/api/appi', '')
   
-  const res = await $fetch(`${process.env.APPI}/${process.env.APPI_SITE_ID}${endpoint}`, {
+  const res = await $fetch(`${process.env.APPI}/sites/${process.env.APPI_SITE_ID}${endpoint}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${appiToken?.token ?? ''}`,
-      'Key': String(process.env.APPI_SITE_KEY)
+      'Authorization': `Bearer ${appiToken?.token ?? ''}`
     }
   })
   return res

@@ -10,30 +10,30 @@
           <div class="py-2">
             <NuxtLink v-if="getProp('en_version')" :to="getProp('en_version')" class="text-balance">
               <UiPill>
-                <i class="i-mdi-translate"></i>
+                <i class="mdi mdi-translate"></i>
                 English Version
               </UiPill>
             </NuxtLink>
             <NuxtLink v-if="getProp('es_version')" :to="getProp('es_version')" class="text-balance">
               <UiPill>
-                <i class="i-mdi-translate"></i>
+                <i class="mdi mdi-translate"></i>
                 Versión en español
               </UiPill>
             </NuxtLink>
             <UiPill to="/">
-              <i class="i-mdi-account"></i>
+              <i class="mdi mdi-account"></i>
               {{ post?.user?.name }}
             </UiPill>
             <UiPill>
-              <i class="i-mdi-calendar"></i>
-              {{ post?.createdAt }}
+              <i class="mdi mdi-calendar"></i>
+              {{ post?.created_at }}
             </UiPill>
           </div>
         </div>
         <div>
           <NuxtImg
-            v-if="post.image"
-            :src="post.image"
+            v-if="post.picture"
+            :src="post.picture"
             class="max-w-80 mx-auto bg-slate-100 dark:bg-slate-700 shadow-lg p-2 my-2 rounded"
             :alt="post.name" />
         </div>
@@ -53,7 +53,7 @@
     <div class="container xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-2 md:px-auto py-4">
       <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8" v-html="markdown.render(String(post.content))" />
       <LazyBlogCommentsList :post="post" />
-      <LazyBlogCommentsAdd :post="post" :parent-id="0" />
+      <LazyBlogCommentsAdd :post="post" parent_id="" />
     </div>
   </div>
 </template>
@@ -65,7 +65,7 @@ const { data:post } = await useFetch<Post>(`/api/appi/posts/${route.params.slug}
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://droni.co/${post.value?.lang === 'es' ? 'es/' : ''}blog/${post.value?.slug}` }
+    { rel: 'canonical', href: `https://droni.co/blog/${post.value?.slug}` }
   ]
 })
 useSeoMeta({
@@ -74,12 +74,12 @@ useSeoMeta({
   description: post.value?.description,
   ogDescription:  post.value?.description,
   ogType: 'article',
-  ogImage: post.value?.image,
+  ogImage: post.value?.picture,
   twitterCard: 'summary_large_image',
-  ogUrl: `https://droni.co/${post.value?.lang === 'es' ? 'es/' : ''}blog/${post.value?.slug}`
+  ogUrl: `https://droni.co/blog/${post.value?.slug}`
 })
 const getProp = (name: string) => {
-  return post.value?.props?.find(prop => prop.name === name)?.value
+  return post.value?.attrs?.find(attr => attr.name === name)?.value ?? ''
 }
 const getVideoUrl = (video:string) => {
   let videoId = video.split('v=')[1]

@@ -1,12 +1,7 @@
-const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   plugins: [
-    iconsPlugin({
-      collections: getIconCollections(["mdi"]),
-    }),
     require('@tailwindcss/typography'),
   ],
   theme: {
