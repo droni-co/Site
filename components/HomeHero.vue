@@ -27,7 +27,7 @@
         
       </div>
       <div class="relative z-2 grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-        <BlogCardH v-for="post in lastPosts?.data" :key="post.id" :post="post" class="mt-8 mx-4" />
+        <BlogCardH v-for="post in lastPosts?.data" :key="post.id" :post="post" class="mt-8 md:mx-4" />
       </div>
     </div>
   </section>
