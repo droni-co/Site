@@ -1,32 +1,25 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
-  <div v-if="post">
+  <article v-if="post">
     <UiHero>
       <div class="text-center md:text-start py-6 md:flex">
         <div class="grow my-auto">
           <h1 class="text-balance text-3xl lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
-            {{ post?.name }}
+            {{ post.name }}
           </h1>
           <h4 class="py-2 text-balance">{{ post.description }}</h4>
-          <div class="py-2">
-            <NuxtLink v-if="getProp('en_version')" :to="getProp('en_version')" class="text-balance">
-              <UiPill>
-                <i class="mdi mdi-translate"></i>
-                English Version
-              </UiPill>
-            </NuxtLink>
-            <NuxtLink v-if="getProp('es_version')" :to="getProp('es_version')" class="text-balance">
-              <UiPill>
-                <i class="mdi mdi-translate"></i>
-                Versión en español
-              </UiPill>
-            </NuxtLink>
-            <UiPill to="/">
-              <i class="mdi mdi-account"></i>
-              {{ post?.user?.name }}
+          <div class="flex">
+            <UiPill>
+              <div class="flex">
+                <NuxtImg :src="post.user.avatar ?? ''" :alt="post.user.name" class="w-4 h-4 rounded-full mr-1" />
+                <span>{{ post.user.name }}</span>
+              </div>
             </UiPill>
             <UiPill>
-              <i class="mdi mdi-calendar"></i>
-              {{ post?.created_at }}
+              <i class="mdi mdi-calendar" />
+              <time :datetime="post.created_at">
+                {{ new Date(post.created_at).toLocaleString() }}
+              </time>
             </UiPill>
           </div>
         </div>
@@ -40,28 +33,28 @@
       </div>
     </UiHero>
     <div class="container mx-auto">
-      <div class="aspect-video" v-if="getProp('video')">
+      <div v-if="getProp('video')" class="aspect-video">
         <iframe
           :src="getVideoUrl(getProp('video'))"
           :title="post.name"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-          class="w-full h-full">
-          </iframe>
+          class="w-full h-full" />
       </div>
     </div>
-    <div class="container xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-2 md:px-auto py-4">
+    <div class="container mx-auto px-2 md:px-auto py-4">
       <article class="prose lg:prose-xl max-w-full dark:prose-invert md:my-8" v-html="markdown.render(String(post.content))" />
-      <LazyBlogCommentsList :post="post" />
-      <LazyBlogCommentsAdd :post="post" parent_id="" />
     </div>
-  </div>
+    <div class="container mx-auto">
+      <CommentsList commentable="content_post" :commentable-id="post.id" />
+    </div>
+  </article>
 </template>
 <script setup lang="ts">
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 const route = useRoute()
-const { data:post } = await useFetch<Post>(`/api/appi/posts/${route.params.slug}`)
+const post = useFetch<Post>(`/api/appi/content/posts/${route.params.slug}`).data
 
 useHead({
   link: [

@@ -2,15 +2,15 @@
   <div>
     <UiHero>
       <div class="text-center md:text-start py-6">
-        <h1 class="text-balance text-xl lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
-          Blog de Droni.co
+        <h1 class="text-balance lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
+          Archivo del Blog de Droni.co
         </h1>
-        <h4 class="text-balance text-sm lg:text-lg text-gray-800 drop-shadow-lg dark:text-gray-50">
-          Compartimos el conocimiento y la experiencia contigo.
+        <h4>
+          Algunos posts que ya son demasiado viejos o estan muy desactualizados quedan relegados al archivo.
         </h4>
       </div>
     </UiHero>
-    <div class="container mx-auto px-2 py-3">
+    <div class="container mx-auto py-3">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <BlogCard
           v-for="post in posts.data"
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 const filters = ref({ page: 1, itemsPerPage: 12 })
 const posts = ref(
-  (await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`))
+  (await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=archivo`))
   ?? { data: []}
 )
 const morePosts = () => {
@@ -39,7 +39,7 @@ const morePosts = () => {
 }
 const getPosts = async ({npage=1, nperPage=20}) => {
   filters.value = { itemsPerPage: nperPage, page: npage }
-  const data = await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&page=${filters.value.page}&category=blog`)
+  const data = await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&page=${filters.value.page}&category=archivo`)
   posts.value.data = [...posts.value.data, ...data.data]
   filters.value.page = data.current_page
   filters.value.itemsPerPage = data.per_page

@@ -5,20 +5,17 @@
         class="w-full aspect-video"
         title="dronico"
         src="https://player.twitch.tv/?channel=dronico&parent=droni.co"
-        allowfullscreen="true"></iframe>
+        allowfullscreen="true" />
     </div>
     <div>
       <iframe
         class="w-full h-dvh md:h-full"
         title="chat"
-        id="chat_embed"
-        src="https://www.twitch.tv/embed/dronico/chat?parent=droni.co">
-      </iframe>
+        src="https://www.twitch.tv/embed/dronico/chat?parent=droni.co" />
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const route = useRoute()
 useSeoMeta({
   title: 'Droni.co | Live',
   ogTitle: 'Droni.co | Live',

@@ -2,21 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/image',
-    '@nuxtjs/color-mode',
-    '@sidebase/nuxt-auth',
-    'nuxt-gtag'
-  ],
-  auth: {
-    baseURL: process.env.AUTH_ORIGIN,
-    provider: {
-      type: 'authjs'
-    }
-  },
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss', 'nuxt-gtag', '@nuxtjs/color-mode', '@sidebase/nuxt-auth'],
   gtag: {
     id: 'G-HB48CY1HBF'
+  },
+  runtimeConfig: {
+    appi: process.env.APPI,
+    appiSiteId: process.env.APPI_SITE_ID,
   },
   app: {
     head: {
@@ -26,9 +18,6 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css' }
       ]
     }
-  },
-  colorMode: {
-    classSuffix: ''
   },
   image: {
     quality: 70,
@@ -42,5 +31,11 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     }
-  }
+  },
+  auth: {
+    baseURL: '/api/auth',
+    provider: {
+      type: 'authjs'
+    }
+  },
 })

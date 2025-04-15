@@ -35,7 +35,7 @@ declare global {
     updatedAt: string
   }
 
-  export interface Pagination<T extends Iterable<any>> {
+  export interface Pagination<T extends Iterable<unknown>> {
     data: T
     current_page: number
     from: number
@@ -53,16 +53,16 @@ declare global {
 
   export interface Prop {
     name: string,
-    value: any
+    value: string
   }
 
   export interface Comment {
-    id: string
+    id: number
     site_id: string
     commentable_type: string
     commentable_id: string
     user_id: string
-    parent_id: any
+    parent_id: string | null
     content: string
     approved_at: string
     created_at: string
@@ -73,9 +73,10 @@ declare global {
 
   /* New */
   export interface Post {
-    id: string
+    id: number
     user_id: string
     site_id: string
+    category_id: number
     slug: string
     name: string
     description: string
@@ -85,35 +86,26 @@ declare global {
     active: number
     created_at: string
     updated_at: string
-    categories: Category[]
+    category: Category
     user: User
-    attrs: Attr[]
-  }
-
-  export interface CategoryPost {
-    categoryable_type: string
-    categoryable_id: string
-    category_id: string
+    attrs?: Attr[]
   }
 
   export interface Category {
-    id: string
+    id: number
     site_id: string
     slug: string
     name: string
     description: string
-    picture: string
+    picture?: string
     created_at: string
     updated_at: string
-    pivot: CategoryPost
   }
 
   export interface User {
     id: string
     name: string
     email: string
-    email_verified_at: any
-    provider: any
     avatar: string
     created_at: string
     updated_at: string
@@ -121,14 +113,32 @@ declare global {
 
   export interface Attr {
     id: number
-    site_id: string
-    attributable_type: string
-    attributable_id: string
+    post_id: number
     name: string
     type: string
     value: string
-    created_at: string
-    updated_at: string
   }
+
+  export interface Login {
+    user: User
+    token: Token
+    enrollment: Enrollment
+  }
+  
+  export interface Token {
+    accessToken: AccessToken
+    plainTextToken: string
+  }
+  
+  export interface AccessToken {
+    name: string
+    abilities: string[]
+    expires_at: Date | null
+    tokenable_id: string
+    tokenable_type: string
+    updated_at: string
+    created_at: string
+    id: number
+  }  
   
 }

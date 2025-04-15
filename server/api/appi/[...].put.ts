@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   console.log('token', appiToken)
   
   const res = await $fetch(`${runtimeConfig.appi}${endpoint}`, {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': appiToken,
