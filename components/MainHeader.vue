@@ -14,7 +14,7 @@
         <span class="ml-2 leading-none">
           <strong>Droni.co</strong>
           <small class="block text-xm font-normal">
-            Desarrollo inteligente
+            Desarrollo inteligente {{ toggleMenu }}
           </small>
         </span>
       </NuxtLink>
@@ -24,10 +24,9 @@
         <i class="mdi mdi-menu text-xl" />
       </button>
       <nav
-        class="md:flex text-md"
         :class="{
           'block absolute top-0 left-0 w-full h-screen bg-slate-50 dark:bg-slate-900 dark:bg-slate-800 flex flex-col items-center justify-center': toggleMenu,
-          'space-x-8': !toggleMenu
+          'hidden md:flex text-md space-x-4': !toggleMenu
         }"
         @click="toggleMenu = false"
         @keydown.enter="toggleMenu = false"
@@ -52,22 +51,22 @@
         </NuxtLink>
         <NuxtLink
           v-if="status === 'authenticated'"
-          to="/" class="flex relative inline-block text-slate-700 dark:text-slate-300 hover:text-pink-600 transition-all duration-300 border border-slate-300 dark:border-slate-600 rounded-full pe-2">
+          to="/" class="flex text-slate-700 dark:text-slate-300 hover:text-pink-600 transition border border-slate-300 dark:border-slate-600 rounded-full pe-2">
           <img :src="data?.user?.image ?? ''" alt="User Image" class="w-6 h-6 rounded-full mr-1">
-          {{ data?.user?.name }}
+          <span>{{ data?.user?.name }}</span>
         </NuxtLink>
         <NuxtLink
           v-if="status !== 'authenticated'"
-          class="group relative inline-block text-slate-700 dark:text-slate-300 hover:text-pink-600 transition-all duration-300 cursor-pointer"
+          class="group relative inline-block text-slate-700 dark:text-slate-300 hover:text-pink-600 transition cursor-pointer"
           @click="signIn('google')">
           <i class="mdi mdi-google" />
           Ingresa
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-pink-600 transform -translate-x-1/2 transition-all duration-300 group-hover:w-full" />
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-pink-600 transform -translate-x-1/2 transition group-hover:w-full" />
         </NuxtLink>
         <div class="flex items-center space-x-2">
           <button
             v-if="status === 'authenticated'"
-            class="text-slate-700 hover:text-pink-600 dark:text-slate-100 dark:hover:text-pink-900 transition"
+            class="text-slate-700 hover:text-pink-600 dark:text-slate-100 dark:hover:text-pink-900 transition cursor-pointer"
             @click="closeSession">
             <i class="mdi mdi-logout" />
           </button>
