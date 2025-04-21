@@ -1,11 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss', 'nuxt-gtag', '@nuxtjs/color-mode', '@sidebase/nuxt-auth'],
+  modules: ['@nuxt/eslint', '@nuxt/image', 'nuxt-gtag', '@sidebase/nuxt-auth', '@nuxtjs/color-mode'],
   gtag: {
     id: 'G-HB48CY1HBF'
   },
+  css: [
+    '/assets/css/app.css',
+  ],
   runtimeConfig: {
     appi: process.env.APPI,
     appiSiteId: process.env.APPI_SITE_ID,
@@ -37,5 +41,13 @@ export default defineNuxtConfig({
     provider: {
       type: 'authjs'
     }
+  },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+  colorMode: {
+    classSuffix: ''
   },
 })

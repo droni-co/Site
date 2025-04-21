@@ -4,13 +4,13 @@
       <NuxtLink
         to="/"
         title="Droni.co | Desarrollo inteligente"
-        class="flex items-center text-slate-700 hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-200"
+        class="flex items-center text-slate-700 transition hover:text-slate-900 dark:text-slate-100 dark:hover:text-rose-200"
         aria-label="Droni.co | Desarrollo inteligente"
         tabindex="-1"
         role="link"
         >
-          <img src="~/assets/img/logo.svg" alt="Droni.co | Desarrollo inteligente" class="w-7 md:w-8 dark:hidden">
-          <img src="~/assets/img/logo-w.svg" alt="Droni.co | Desarrollo inteligente" class="w-7 md:w-8 hidden dark:block">
+          <img src="~/assets/img/logo.svg" alt="Droni.co | Desarrollo inteligente" class="w-8 md:w-8 dark:hidden">
+          <img src="~/assets/img/logo-w.svg" alt="Droni.co | Desarrollo inteligente" class="w-8 md:w-8 dark:block hidden">
         <span class="ml-2 leading-none">
           <strong>Droni.co</strong>
           <small class="block text-xm font-normal">
@@ -27,7 +27,7 @@
         class="md:flex text-md"
         :class="{
           'block absolute top-0 left-0 w-full h-screen bg-slate-50 dark:bg-slate-900 dark:bg-slate-800 flex flex-col items-center justify-center': toggleMenu,
-          'hidden space-x-8': !toggleMenu
+          'space-x-8': !toggleMenu
         }"
         @click="toggleMenu = false"
         @keydown.enter="toggleMenu = false"
@@ -72,8 +72,9 @@
             <i class="mdi mdi-logout" />
           </button>
           <button
-            class="text-slate-700 hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-200 hover:opacity-75"
-            @click="changeColorMode">
+            class="text-slate-700 hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-200 hover:opacity-75 cursor-pointer"
+            @click="changeColorMode"
+            >
             <i class="mdi mdi-theme-light-dark" />
           </button>
         </div>
@@ -87,18 +88,12 @@ const route = useRoute()
 const { status, data, signIn, signOut   } = useAuth()
 const toggleMenu = ref(false)
 
-const changeColorMode = () => {
-  if (colorMode.preference === 'light') {
-    colorMode.preference = 'dark'
-  } else if (colorMode.preference === 'dark') {
-    colorMode.preference = 'light'
-  } else {
-    colorMode.preference = 'dark'
-  }
-}
-
 const closeSession = () => {
   signOut()
+}
+
+const changeColorMode = () => {
+  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
 
 const menu = [

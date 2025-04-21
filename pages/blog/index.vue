@@ -19,15 +19,16 @@
           />
       </div>
       <div class="text-center py-3">
-        <UiButton @click="morePosts">
+        <DuiButton @click="morePosts">
           <i class="mdi mdi-plus" />
           Ver más...
-        </UiButton>
+        </DuiButton>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { DuiButton } from '@dronico/droni-kit'
 const filters = ref({ page: 1, itemsPerPage: 12 })
 const posts = ref(
   (await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`))
