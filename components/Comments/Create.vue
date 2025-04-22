@@ -1,17 +1,21 @@
 <template>
-  <div class="flex">
-    <textarea
+  <div>
+    <DuiTextarea
       v-model="newComment.content"
-      class="block w-full p-2 m-0 mb-0 border rounded rounded-l-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-zinc-800 text-slate-900 dark:text-slate-300 focus:outline-none min-h-[50px] max-h-[200px]"
+      block
+      label="Escribe un comentario..."
+      required
       placeholder="Puedes usar formato markdown..." />
-    <UiButton
-      class="rounded-l-none"
+    <DuiButton
+      color="primary"
       @click="createComment">
       <i class="mdi mdi-send" />
-    </UiButton>
+      Enviar comentario
+    </DuiButton>
   </div>
 </template>
 <script setup lang="ts">
+import { DuiTextarea, DuiButton } from '@dronico/droni-kit';
 const props = defineProps<{
   commentable: 'content_post' | 'codevs_challenge' | 'codevs_submission',
   commentableId: number,
