@@ -24,14 +24,18 @@
               para facilitar el desarrollo de aplicaciones web.
             </p>
             <div class="mt-4">
-              <DuiButton to="https://github.com/Droni-app/droni-kit" variant="ghost" size="sm">
-                <i class="mdi mdi-github"/>
-                Github repo
-              </DuiButton>
-              <DuiButton to="https://droni-app.github.io/droni-kit/" variant="ghost" size="sm">
-                <i class="mdi mdi-text-box-search-outline"/>
-                Catalogo de componentes
-              </DuiButton>
+              <NuxtLink to="https://github.com/Droni-app/droni-kit" title="Github repo">
+                <DuiAction href="https://github.com/Droni-app/droni-kit" variant="ghost" size="sm">
+                  <i class="mdi mdi-github"/>
+                  Github repo
+                </DuiAction>
+              </NuxtLink>
+              <NuxtLink to="https://droni-app.github.io/droni-kit/" title="Documentación de Droni-kit">
+                <DuiAction variant="ghost" size="sm">
+                  <i class="mdi mdi-text-box-search-outline"/>
+                  Catalogo de componentes
+                </DuiAction>
+              </NuxtLink>
             </div>
           </div>
           <div class="flex-shrink-0">
@@ -47,7 +51,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { DuiButton } from '@dronico/droni-kit';
+import { DuiAction } from '@dronico/droni-kit';
 
 useSeoMeta({
   title: 'Proyectos de la comunidad | Droni.co',
