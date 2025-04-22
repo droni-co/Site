@@ -10,9 +10,45 @@
         </h4>
       </div>
     </UiHero>
+    <div class="container mx-auto py-5">
+      <div class="mx-auto p-6 max-w-4xl">
+        <div class="flex flex-col md:flex-row rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-zinc-50 to-slate-100 text-zinc-800 dark:from-slate-800 dark:to-zinc-900 dark:text-zinc-50">
+
+          <!-- Contenido -->
+          <div class="p-6 flex flex-col justify-center">
+            <h2 class="text-2xl font-bold mb-4">Droni-kit</h2>
+            <p class="text-zinc-600 dark:text-zinc-400">
+              Un catalogo de componentes de Vue 3 para el desarrollo de aplicaciones
+              web. Droni-kit es un kit de herramientas de código abierto que
+              proporciona una colección de componentes reutilizables y personalizables
+              para facilitar el desarrollo de aplicaciones web.
+            </p>
+            <div class="mt-4">
+              <DuiButton to="https://github.com/Droni-app/droni-kit" variant="ghost" size="sm">
+                <i class="mdi mdi-github"/>
+                Github repo
+              </DuiButton>
+              <DuiButton to="https://droni-app.github.io/droni-kit/" variant="ghost" size="sm">
+                <i class="mdi mdi-text-box-search-outline"/>
+                Catalogo de componentes
+              </DuiButton>
+            </div>
+          </div>
+          <div class="flex-shrink-0">
+            <img
+              src="~/assets/img/pages/droni-kit.webp"
+              alt="Droni-kit | Catálogo de componentes"
+              class="w-full md:w-60 h-48 md:h-full object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
+import { DuiButton } from '@dronico/droni-kit';
+
 useSeoMeta({
   title: 'Proyectos de la comunidad | Droni.co',
   ogTitle: 'Proyectos de la comunidad | Droni.co',

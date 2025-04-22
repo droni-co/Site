@@ -17,14 +17,12 @@
     </UiHero>
     <div class="container mx-auto py-5">
       <div class="mx-auto p-6 max-w-4xl">
-        <div
-          class="flex flex-col md:flex-row rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-zinc-50 to-slate-100 text-zinc-800 dark:from-slate-800 dark:to-zinc-900 dark:text-zinc-50"
-        >
+        <div class="flex flex-col md:flex-row rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r from-zinc-50 to-slate-100 text-zinc-800 dark:from-slate-800 dark:to-zinc-900 dark:text-zinc-50">
           <!-- Imagen -->
           <div class="flex-shrink-0">
             <img
               src="~/assets/img/pages/desafios-de-programacion.webp"
-              alt="Card image"
+              alt="Desafíos de programación"
               class="w-full md:w-60 h-48 md:h-full object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none dark:invert"
             >
           </div>
