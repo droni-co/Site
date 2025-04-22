@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   },
   css: [
     '/assets/css/app.css',
+    '@dronico/droni-kit/dist/droni-kit.css'
   ],
   runtimeConfig: {
     appi: process.env.APPI,
