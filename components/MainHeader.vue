@@ -14,7 +14,7 @@
         <span class="ml-2 leading-none">
           <strong>Droni.co</strong>
           <small class="block text-xm font-normal">
-            Desarrollo inteligente {{ toggleMenu }}
+            Desarrollo inteligente
           </small>
         </span>
       </NuxtLink>

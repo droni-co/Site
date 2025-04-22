@@ -18,7 +18,7 @@
           <div class="p-6 flex flex-col justify-center">
             <h2 class="text-2xl font-bold mb-4">Droni-kit</h2>
             <p class="text-zinc-600 dark:text-zinc-400">
-              Un catalogo de componentes de Vue 3 para el desarrollo de aplicaciones
+              Un catálogo de componentes de Vue 3 para el desarrollo de aplicaciones
               web. Droni-kit es un kit de herramientas de código abierto que
               proporciona una colección de componentes reutilizables y personalizables
               para facilitar el desarrollo de aplicaciones web.
@@ -33,7 +33,7 @@
               <NuxtLink to="https://droni-app.github.io/droni-kit/" title="Documentación de Droni-kit">
                 <DuiAction variant="ghost" size="sm">
                   <i class="mdi mdi-text-box-search-outline"/>
-                  Catalogo de componentes
+                  Catálogo de componentes
                 </DuiAction>
               </NuxtLink>
             </div>
@@ -52,6 +52,7 @@
 </template>
 <script setup lang="ts">
 import { DuiAction } from '@dronico/droni-kit';
+
 
 useSeoMeta({
   title: 'Proyectos de la comunidad | Droni.co',
