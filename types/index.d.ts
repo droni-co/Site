@@ -139,6 +139,30 @@ declare global {
     updated_at: string
     created_at: string
     id: number
-  }  
+  }
+
+  export interface Challenge {
+    id: number
+    site_id: string
+    user_id: string
+    slug: string
+    name: string
+    description: string
+    content: string
+    scaffold: string
+    funcName: string
+    level: number
+    created_at: string
+    updated_at: string
+    user: User
+    tests?: Test[]
+  }
+  export interface Test {
+    id: number
+    challenge_id: number
+    input: string
+    output: string
+  }
+  
   
 }

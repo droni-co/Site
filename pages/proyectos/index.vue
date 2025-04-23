@@ -53,7 +53,6 @@
 <script setup lang="ts">
 import { DuiAction } from '@dronico/droni-kit';
 
-
 useSeoMeta({
   title: 'Proyectos de la comunidad | Droni.co',
   ogTitle: 'Proyectos de la comunidad | Droni.co',
