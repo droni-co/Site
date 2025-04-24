@@ -170,6 +170,10 @@ declare global {
     obtenido: string,
     check: boolean
   }
-  
+
+  export interface Window {
+    require: unknown
+    monaco: unknown
+  }
   
 }

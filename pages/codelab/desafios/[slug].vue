@@ -35,8 +35,12 @@
         </DuiButton>
       </header>
       <ClientOnly v-if="challenge.scaffold.length > 0" fallback-tag="div" fallback="Cargando editor...">
-        <MonacoEditor v-model="code" lang="typescript" class="h-full" :options="{ theme: 'vs-dark'}" />
+        <MonacoEditor v-model="code" lang="typescript" class="h-full" :options="{ theme: 'vs-dark' }" />
       </ClientOnly>
+      <!-- <textarea
+        v-model="code"
+        class="w-full h-full border-2 border-slate-500 rounded p-2 shadow-lg mb-1"
+        placeholder="Escribe tu código aquí..." /> -->
       <footer class="h-full">
         <pre>{{ consoleResults }}</pre>
       </footer>
@@ -45,8 +49,16 @@
 </template>
 <script setup lang="ts">
 import MarkdownIt from "markdown-it";
-import ts from "typescript";
 import { DuiAction, DuiButton } from "@dronico/droni-kit";
+
+useHead({
+  script: [
+    {
+      src: "https://cdn.jsdelivr.net/npm/typescript@latest/lib/typescript.js",
+      type: "text/javascript",
+    }
+  ],
+})
 
 definePageMeta({
   layout: 'blank'
@@ -76,6 +88,9 @@ const code = ref(challenge.value?.scaffold || '');
 
 
 const compileCode = async () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const ts = globalThis.ts;
   consoleResults.value = [];
   const codigo = ts.transpileModule(code.value, { compilerOptions: { module: ts.ModuleKind.CommonJS }});
   const inicio = performance.now();
