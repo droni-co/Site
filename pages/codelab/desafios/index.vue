@@ -12,24 +12,42 @@
     </UiHero>
     <div class="container mx-auto py-5">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <NuxtLink
+        <div
           v-for="challenge in challenges?.data ?? []"
           :key="challenge.slug"
-          :to="`/codelab/desafios/${challenge.slug}`"
-          class="flex flex-col p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h2 class="text-lg font-semibold text-gray-800">
-            {{ challenge.name }}
-          </h2>
-          <p class="text-gray-600">
+          class="rounded border p-3 bg-white shadow-md hover:shadow-lg transition duration-300 ease-in-out dark:bg-gray-800 dark:border-gray-700">
+          <NuxtLink :to="`/codelab/desafios/${challenge.slug}`">
+            <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+              {{ challenge.name }}
+            </h2>
+          </NuxtLink>
+          <p class="text-gray-600 dark:text-gray-400">
+            <!-- badge -->
             {{ challenge.description }}
           </p>
-          <p class="text-gray-500 mt-2">Estamos construyendo esto</p>
-        </NuxtLink>
+          <div class="flex items-center justify-between mt-4">
+            <NuxtLink :to="`/codelab/desafios/${challenge.slug}`">
+              <DuiAction
+                variant="ghost"
+                color="primary"
+                size="sm">
+                <i class="mdi mdi-play" />
+                Ver desafío
+              </DuiAction>
+            </NuxtLink>
+            <div>
+              <span class="block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                {{ levelToString(challenge.level) }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import  { DuiAction } from '@dronico/droni-kit'
 useSeoMeta({
   title: 'Desafios de programación | Droni.co',
   ogTitle: 'Desafios de programación | Droni.co',
@@ -44,5 +62,18 @@ const challenges = ref(
   (await useFetch<Pagination<Challenge[]>>(`/api/appi/codevs/challenges?perPage=${filters.value.itemsPerPage}`)).data
   ?? { data: [] }
 )
+
+const levelToString = (level: number) => {
+  switch (level) {
+    case 1:
+      return 'Fácil'
+    case 2:
+      return 'Intermedio'
+    case 3:
+      return 'Difícil'
+    default:
+      return 'Desconocido'
+  }
+}
 
 </script>

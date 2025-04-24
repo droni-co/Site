@@ -163,6 +163,13 @@ declare global {
     input: string
     output: string
   }
+
+  export interface TestResult {
+    test: string,
+    esperado: string,
+    obtenido: string,
+    check: boolean
+  }
   
   
 }
