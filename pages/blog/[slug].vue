@@ -54,7 +54,7 @@
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 const route = useRoute()
-const post = useFetch<Post>(`/api/appi/content/posts/${route.params.slug}`).data
+const { data: post } = await useFetch<Post>(`/api/appi/content/posts/${route.params.slug}`)
 
 useHead({
   link: [

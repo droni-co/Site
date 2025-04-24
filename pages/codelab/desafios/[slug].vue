@@ -66,8 +66,8 @@ definePageMeta({
 
 const markdown = new MarkdownIt();
 const route = useRoute();
-const challenge = useFetch<Challenge>(`/api/appi/codevs/challenges/${route.params.slug}`).data;
-const tests = useFetch<Test[]>(`/api/appi/codevs/challenges/${route.params.slug}/tests`).data;
+const { data: challenge } = await useFetch<Challenge>(`/api/appi/codevs/challenges/${route.params.slug}`);
+const { data: tests } = useFetch<Test[]>(`/api/appi/codevs/challenges/${route.params.slug}/tests`);
 
 useSeoMeta({
   title: () => challenge.value?.name,
@@ -85,7 +85,6 @@ const consoleResults = ref<TestResult[]>([]);
 const consoleTime = ref(0);
 
 const code = ref(challenge.value?.scaffold || '');
-
 
 const compileCode = async () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -54,7 +54,7 @@ export default defineNuxtConfig({
   },
   monacoEditor: {
     // These are default values:
-    locale: 'es',
+    locale: 'en',
     componentName: {
       codeEditor: 'MonacoEditor',
       diffEditor: 'MonacoDiffEditor'

@@ -30,10 +30,7 @@
 <script setup lang="ts">
 import { DuiButton } from '@dronico/droni-kit'
 const filters = ref({ page: 1, itemsPerPage: 12 })
-const posts = ref(
-  (await useFetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`)).data
-  ?? { data: []}
-)
+const { data: posts } = await useFetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`)
 const morePosts = () => {
   filters.value.page++
   getPosts({npage: filters.value.page, nperPage: filters.value.itemsPerPage})  
