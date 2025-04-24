@@ -4,6 +4,7 @@
     >
     <NuxtLoadingIndicator color="#ed1f9b" />
     <NuxtRouteAnnouncer />
+    <UiToast />
     <slot />
   </div>
 </template>

@@ -17,6 +17,36 @@
           class="prose lg:prose-lg max-w-full dark:prose-invert md:my-8"
           v-html="markdown.render(String(challenge.content))"
         />
+
+        <DuiAlert
+          v-for="submission in submissions?.data ?? []"
+          :key="submission.id"
+          color="primary"
+          >
+          <strong>{{ submission.user?.name }}</strong><br>
+          <span class="text-sm">
+            <i class="mdi mdi-clock-outline" />
+            {{ submission.created_at }}
+          </span> | 
+          <span class="text-sm">
+            <i class="mdi mdi-clock-outline" />
+            {{ submission.complete_time }}ms
+          </span> |
+          <span class="text-sm">
+            <i class="mdi mdi-check" />
+            {{ submission.complete ? 'Completado' : 'No completado' }}
+          </span>
+          <DuiButton
+            v-if="submission.code"
+            variant="ghost"
+            color="primary"
+            size="sm"
+            @click="loadCode(submission.code)"
+          >
+            <i class="mdi mdi-clipboard-text" />
+            Ver código
+          </DuiButton>
+        </DuiAlert>
       </div>
     </section>
     <section class="bg-zinc-50 dark:bg-zinc-900 md:w-1/2 flex flex-col">
@@ -79,6 +109,12 @@ import MarkdownIt from "markdown-it";
 import { DuiAction, DuiButton, DuiAlert } from "@dronico/droni-kit";
 const { status: authStatus } = useAuth()
 const isSubmissionCode = ref(false);
+const toast:Ref<Toast> = useState('toast', () => ({
+  show: false,
+  message: '',
+  color: 'info',
+  duration: 5000,
+}))
 
 useHead({
   script: [
@@ -112,8 +148,8 @@ useSeoMeta({
 
 const consoleResults = ref<TestResult[]>([]);
 const consoleTime = ref(0);
-
 const code = ref(challenge.value?.scaffold || '');
+const { data: submissions } = await useFetch<Pagination<Submission[]>>(`/api/appi/codevs/challenges/${challenge.value?.slug}/submissions`)
 
 const compileCode = async () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -177,14 +213,46 @@ const checkResult = () => {
   return false;
 }
 
-// const loadCode = (inCode: string) => {
-//   isSubmissionCode.value = true;
-//   code.value = inCode;
-// }
+const loadCode = (inCode: string) => {
+  isSubmissionCode.value = true;
+  code.value = inCode;
+}
 
 const saveResult = () => {
   if(checkResult()) {
-    console.log('Guardando resultado...');
+    $fetch(`/api/appi/codevs/challenges/${challenge.value?.slug}/submissions`, {
+      method: 'POST',
+      body: {
+        challengeId: challenge.value?.id,
+        code: code.value,
+        complete_time: consoleTime.value,
+        complete: true
+      }
+    }).then((submission) => {
+      console.log('Guardando resultado...');
+      console.log(submission);
+      toast.value = {
+        show: true,
+        message: 'Guardado exitoso.',
+        color: 'success',
+        duration: 5000,
+      }
+      getSubmissions();
+    }).catch((error) => {
+      console.error(error)
+      toast.value = {
+        show: true,
+        message: 'Error al guardar el resultado.',
+        color: 'danger',
+        duration: 5000,
+      }
+    })
+  }
+}
+
+const getSubmissions = async () => {
+  if(authStatus.value === 'authenticated') {
+    submissions.value = await $fetch<Pagination<Submission[]>>(`/api/appi/codevs/challenges/${route.params.slug}/submissions`);
   }
 }
 </script>

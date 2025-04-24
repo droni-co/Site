@@ -45,12 +45,6 @@ declare global {
     total: number
   }
 
-  export interface Toast {
-    active: boolean
-    type: 'success' | 'error' | 'warning' | 'info'
-    message: string
-  }
-
   export interface Prop {
     name: string,
     value: string
@@ -174,6 +168,26 @@ declare global {
   export interface Window {
     require: unknown
     monaco: unknown
+  }
+
+  export interface Toast {
+    show: boolean
+    message: string
+    color: string,
+    duration: number,
+  }
+
+  export interface Submission {
+    id: string
+    code: string
+    complete: boolean
+    complete_time: string
+    votes: number
+    rank: string
+    created_at: string
+    userId: string
+    challengeId: string
+    user?: User
   }
   
 }
