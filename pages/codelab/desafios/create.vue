@@ -54,9 +54,13 @@
             <p class="text-sm text-gray-700 dark:text-gray-400 pb-3">
               Detalla los parámetros de entrada y salida de tu desafío, así como ejemplos de uso. Puedes usar Markdown para formatear el texto.
             </p>
-            <ClientOnly fallback-tag="div" fallback="Cargando editor...">
-              <MonacoEditor v-model="newChallenge.content" language="markdown" />
-            </ClientOnly>
+            <DuiTextarea
+              v-model="newChallenge.content"
+              label="Detalles del desafío"
+              placeholder="ej. Descripción de los parámetros de entrada y salida, ejemplos de uso."
+              required
+              block
+              class="mb-3" />
           </div>
           <div class="w-full md:w-1/2 md:p-4">
             <h4 class="font-bold text-gray-800 drop-shadow-lg dark:text-gray-200 pt-4">
@@ -132,15 +136,7 @@ definePageMeta({
 const newChallenge = ref({
   name: '',
   description: '',
-  content: `# Desafío de programación
-## Descripción
-Describe los parametros de entrada y salida de tu desafío.
-## Ejemplo
-Describe un ejemplo de entrada y salida de tu desafío.
-## Restricciones
-Describe las restricciones de tu desafío.
-## Notas
-Describe las notas de tu desafío.`,
+  content: '',
   level: '3',
   funcName: '',
   scaffold: '',
@@ -215,6 +211,14 @@ const responseByType = (type: string): string => {
 }
 
 const saveChallenge = async () => {
+  $fetch(`/api/appi/codevs/challenges`, {
+    method: 'POST',
+    body: newChallenge.value,
+  }).then((challenge) => {
+    console.log(challenge)
+  }).catch((error) => {
+    console.error(error)
+  })
   console.log('saveChallenge', newChallenge.value)
 }
 

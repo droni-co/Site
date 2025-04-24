@@ -12,9 +12,17 @@
     </UiHero>
     <div class="container mx-auto py-5">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <NuxtLink to="/codelab/desafios" class="flex flex-col p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h2 class="text-lg font-semibold text-gray-800">Suma de dos números</h2>
-          <p class="text-gray-600">Dada una matriz de números enteros y un objetivo entero, devuelve los índices de los dos números tales que sumen el objetivo.</p>
+        <NuxtLink
+          v-for="challenge in challenges?.data ?? []"
+          :key="challenge.slug"
+          :to="`/codelab/desafios/${challenge.slug}`"
+          class="flex flex-col p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <h2 class="text-lg font-semibold text-gray-800">
+            {{ challenge.name }}
+          </h2>
+          <p class="text-gray-600">
+            {{ challenge.description }}
+          </p>
           <p class="text-gray-500 mt-2">Estamos construyendo esto</p>
         </NuxtLink>
       </div>
@@ -22,10 +30,19 @@
   </div>
 </template>
 <script setup lang="ts">
-// const filters = ref({ page: 1, itemsPerPage: 12 })
-// const challenges = ref(
-//   (await $fetch<Pagination<Post[]>>(`/api/appi/codevs/challenges?perPage=${filters.value.itemsPerPage}`))
-//   ?? { data: []}
-// )
+useSeoMeta({
+  title: 'Desafios de programación | Droni.co',
+  ogTitle: 'Desafios de programación | Droni.co',
+  description: 'Mejora tus habilidades de programación y resuelve problemas interesantes.',
+  ogDescription: 'Mejora tus habilidades de programación y resuelve problemas interesantes.',
+  ogImage: 'https://dronico.nyc3.digitaloceanspaces.com/4ebaccf5-b863-4f12-aa49-9bbe0e1844e2/db7d4d54-7354-4421-9682-d1b75b1f1413/74529-dronico-card.png.png',
+  twitterCard: 'summary_large_image',
+  ogUrl: 'https://droni.co/codelab/desafios'
+})
+const filters = ref({ page: 1, itemsPerPage: 12 })
+const challenges = ref(
+  (await useFetch<Pagination<Challenge[]>>(`/api/appi/codevs/challenges?perPage=${filters.value.itemsPerPage}`)).data
+  ?? { data: [] }
+)
 
 </script>

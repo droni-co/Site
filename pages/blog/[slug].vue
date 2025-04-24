@@ -62,14 +62,14 @@ useHead({
   ]
 })
 useSeoMeta({
-  title: post.value?.name,
-  ogTitle: post.value?.name,
-  description: post.value?.description,
-  ogDescription:  post.value?.description,
+  title: () => post.value?.name,
+  ogTitle: () => post.value?.name,
+  description: () => post.value?.description,
+  ogDescription: () => post.value?.description,
   ogType: 'article',
-  ogImage: post.value?.picture,
+  ogImage: () => post.value?.picture,
   twitterCard: 'summary_large_image',
-  ogUrl: `https://droni.co/blog/${post.value?.slug}`
+  ogUrl: () => `https://droni.co/blog/${post.value?.slug}`
 })
 const getProp = (name: string) => {
   return post.value?.attrs?.find(attr => attr.name === name)?.value ?? ''

@@ -13,7 +13,7 @@
     <div class="container mx-auto px-2 py-3">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <BlogCard
-          v-for="post in posts.data"
+          v-for="post in posts?.data || []"
           :key="post.id"
           :post="post"
           />
@@ -31,7 +31,7 @@
 import { DuiButton } from '@dronico/droni-kit'
 const filters = ref({ page: 1, itemsPerPage: 12 })
 const posts = ref(
-  (await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`))
+  (await useFetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&category=blog`)).data
   ?? { data: []}
 )
 const morePosts = () => {
@@ -41,7 +41,9 @@ const morePosts = () => {
 const getPosts = async ({npage=1, nperPage=20}) => {
   filters.value = { itemsPerPage: nperPage, page: npage }
   const data = await $fetch<Pagination<Post[]>>(`/api/appi/content/posts?perPage=${filters.value.itemsPerPage}&page=${filters.value.page}&category=blog`)
-  posts.value.data = [...posts.value.data, ...data.data]
+  if (posts.value) {
+    posts.value.data = [...posts.value.data, ...data.data]
+  }
   filters.value.page = data.current_page
   filters.value.itemsPerPage = data.per_page
 }
