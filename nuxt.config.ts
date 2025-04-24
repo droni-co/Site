@@ -1,9 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
+  sourcemap: false,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', 'nuxt-gtag', '@sidebase/nuxt-auth', '@nuxtjs/color-mode'],
+  modules: ['@nuxt/eslint', '@nuxt/image', 'nuxt-gtag', '@sidebase/nuxt-auth', '@nuxtjs/color-mode', 'nuxt-monaco-editor'],
   gtag: {
     id: 'G-HB48CY1HBF'
   },
@@ -45,10 +46,18 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [
-      tailwindcss(),
+      tailwindcss()
     ],
   },
   colorMode: {
     classSuffix: ''
   },
+  monacoEditor: {
+    // These are default values:
+    locale: 'en',
+    componentName: {
+      codeEditor: 'MonacoEditor',
+      diffEditor: 'MonacoDiffEditor'
+    }
+  }
 })

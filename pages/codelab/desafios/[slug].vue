@@ -35,7 +35,7 @@
         </DuiButton>
       </header>
       <ClientOnly v-if="challenge.scaffold.length > 0" fallback-tag="div" fallback="Cargando editor...">
-        <MonacoEditor v-model="code" language="typescript" class="h-full" />
+        <MonacoEditor v-model="code" lang="typescript" class="h-full" :options="{ theme: 'vs-dark'}" />
       </ClientOnly>
       <footer class="h-full">
         <pre>{{ consoleResults }}</pre>

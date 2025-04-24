@@ -109,7 +109,7 @@
               </DuiButton>
             </div>
             <ClientOnly v-if="newChallenge.scaffold.length > 0" fallback-tag="div" fallback="Cargando editor...">
-              <MonacoEditor v-model="newChallenge.scaffold" language="typescript" :scroll-beyond-last-line="false" />
+              <MonacoEditor v-model="newChallenge.scaffold" lang="typescript" tab-size="4" />
             </ClientOnly>
           </div>
         </div>
