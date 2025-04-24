@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
   <div v-if="challenge" class="md:flex h-screen">
-    <section class="md:w-2/5 h-full overflow-auto">
+    <section class="md:w-1/2 h-full overflow-auto">
       <UiHero>
         <div class="text-center md:text-start py-6">
           <h1 class="text-balance text-xl lg:text-4xl text-gray-800 drop-shadow-lg dark:text-gray-50">
@@ -19,7 +19,7 @@
         />
       </div>
     </section>
-    <section class="bg-zinc-50 dark:bg-zinc-900 md:w-3/5 flex flex-col">
+    <section class="bg-zinc-50 dark:bg-zinc-900 md:w-1/2 flex flex-col">
       <header class="flex items-center justify-between p-2">
         <NuxtLink to="/codelab/desafios/">
           <DuiAction>
@@ -42,14 +42,43 @@
         class="w-full h-full border-2 border-slate-500 rounded p-2 shadow-lg mb-1"
         placeholder="Escribe tu código aquí..." /> -->
       <footer class="h-full">
-        <pre>{{ consoleResults }}</pre>
+        <div class="flex justify-between border border-slate-500 rounded p-2 shadow-lg mb-2">
+          <div>
+            <h2 class="font-bold">Resultado de los tests</h2>
+            <p v-if="consoleTime > 0" class="text-sm">
+              <i class="mdi mdi-clock-outline" />
+              {{ consoleTime }}ms 
+              <i class="mdi mdi-test-tube-empty" />
+              {{ consoleResults.length }} tests
+            </p>
+          </div>
+          <div>
+            <DuiButton
+              v-if="checkResult() && !isSubmissionCode"
+              variant="outline"
+              color="secondary"
+              @click="saveResult"
+            >
+              <i class="mdi mdi-save" />
+              Guardar
+            </DuiButton>
+          </div>
+        </div>
+        <DuiAlert v-for="result in consoleResults" :key="result.test" variant="outline" class="m-2" :color="result.check ? 'success' : 'danger'">
+          <strong class="block">Prueba: {{ result.test }}</strong>
+          <div v-if="!result.check" class="text-sm">
+            <span>Esperado: {{ JSON.stringify(result.esperado) }} | Obtenido: {{ JSON.stringify(result.obtenido) }}</span>
+          </div>
+        </DuiAlert>
       </footer>
     </section>
   </div>
 </template>
 <script setup lang="ts">
 import MarkdownIt from "markdown-it";
-import { DuiAction, DuiButton } from "@dronico/droni-kit";
+import { DuiAction, DuiButton, DuiAlert } from "@dronico/droni-kit";
+const { status: authStatus } = useAuth()
+const isSubmissionCode = ref(false);
 
 useHead({
   script: [
@@ -139,5 +168,23 @@ const compileCode = async () => {
   }
   const fin = performance.now();
   consoleTime.value = fin - inicio;
+}
+const checkResult = () => {
+  if(tests.value && consoleResults.value.length === tests.value.length && authStatus.value === 'authenticated') {
+    consoleResults.value.find((result) => !result.check);
+    return true;
+  }
+  return false;
+}
+
+// const loadCode = (inCode: string) => {
+//   isSubmissionCode.value = true;
+//   code.value = inCode;
+// }
+
+const saveResult = () => {
+  if(checkResult()) {
+    console.log('Guardando resultado...');
+  }
 }
 </script>
